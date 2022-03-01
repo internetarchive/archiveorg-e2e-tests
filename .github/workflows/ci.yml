@@ -7,20 +7,23 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  install:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - name: Install node
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      - uses: c-hive/gha-yarn-cache@v2
+        with:
+          directory: /yarn.lock
+      - name: Install node_modules
+        run: yarn install
+  test:
+    - needs: install
+    - uses: c-hive/gha-yarn-cache@v2
       with:
-        node-version: 16.x
-
-    - name: Install dependencies
-      run: yarn install
-
+        directory: /yarn.lock
     - name: Run tests
       run: yarn run test
-
-    - name: Upload reports
-      run: npx codecov
