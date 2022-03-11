@@ -25,6 +25,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: c-hive/gha-yarn-cache@v2
+    # - uses: c-hive/gha-yarn-cache@v2
     - name: Run tests
       run: yarn run test
