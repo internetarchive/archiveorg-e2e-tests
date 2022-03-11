@@ -23,6 +23,9 @@ jobs:
   test:
     needs: install
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: test
 
     steps:
     # - uses: c-hive/gha-yarn-cache@v2
