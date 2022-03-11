@@ -17,8 +17,8 @@ jobs:
         with:
           node-version: 16.x
 
-      # - name: Install node_modules
       - uses: c-hive/gha-yarn-cache@v2
+      - name: Install node_modules
         run: yarn install
 
   # test:
