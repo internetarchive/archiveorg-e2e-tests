@@ -17,16 +17,16 @@ jobs:
         with:
           node-version: 16.x
 
-      - uses: c-hive/gha-yarn-cache@v2
-        with:
-          directory: /yarn.lock
-      - name: Install node_modules
-        run: yarn install
+  #     - uses: c-hive/gha-yarn-cache@v2
+  #       with:
+  #         directory: /yarn.lock
+  #     - name: Install node_modules
+  #       run: yarn install
 
-  test:
-    - needs: install
-    - uses: c-hive/gha-yarn-cache@v2
-      with:
-        directory: /yarn.lock
-    - name: Run tests
-      run: yarn run test
+  # test:
+  #   - needs: install
+  #   - uses: c-hive/gha-yarn-cache@v2
+  #     with:
+  #       directory: /yarn.lock
+  #   - name: Run tests
+  #     run: yarn run test
