@@ -12,7 +12,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      # - name: Install node
       - uses: actions/setup-node@v1
         with:
           node-version: 16.x
@@ -21,11 +20,11 @@ jobs:
       - name: Install node_modules
         run: yarn install
 
-  # test:
-  #   needs: install
-  #   runs-on: ubuntu-latest
+  test:
+    needs: install
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #   - name: Run tests
-  #   - uses: c-hive/gha-yarn-cache@v2
-  #     run: yarn run test
+    steps:
+    - uses: c-hive/gha-yarn-cache@v2
+    - name: Run tests
+      run: yarn run test
