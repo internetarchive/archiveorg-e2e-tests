@@ -21,11 +21,11 @@ jobs:
     - uses: c-hive/gha-yarn-cache@v2
       run: yarn install
 
-  test:
-    needs: install
-    runs-on: ubuntu-latest
+  # test:
+  #   needs: install
+  #   runs-on: ubuntu-latest
 
-    steps:
-    - name: Run tests
-    - uses: c-hive/gha-yarn-cache@v2
-      run: yarn run test
+  #   steps:
+  #   - name: Run tests
+  #   - uses: c-hive/gha-yarn-cache@v2
+  #     run: yarn run test
