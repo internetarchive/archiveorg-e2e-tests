@@ -22,9 +22,9 @@ jobs:
         run: yarn install
 
   test:
+    - name: Run tests
     - needs: install
 
     steps:
-    - uses: c-hive/gha-yarn-cache@v2
-    - name: Run tests
-      run: yarn run test
+      - uses: c-hive/gha-yarn-cache@v2
+        run: yarn run test
