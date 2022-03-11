@@ -9,17 +9,20 @@ on:
 jobs:
   install:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
       - name: Install node
       - uses: actions/setup-node@v1
         with:
           node-version: 16.x
+
       - uses: c-hive/gha-yarn-cache@v2
         with:
           directory: /yarn.lock
       - name: Install node_modules
         run: yarn install
+
   test:
     - needs: install
     - uses: c-hive/gha-yarn-cache@v2
