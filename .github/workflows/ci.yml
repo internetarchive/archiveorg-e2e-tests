@@ -11,20 +11,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Install node
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 16.x
+    - uses: actions/checkout@v2
+    - name: Install node
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 16.x
 
-      - uses: c-hive/gha-yarn-cache@v2
-      - name: Install node_modules
-        run: yarn install
+    - name: Install node_modules
+    - uses: c-hive/gha-yarn-cache@v2
+      run: yarn install
 
   test:
-    - name: Run tests
-    - needs: install
+    needs: install
+    runs-on: ubuntu-latest
 
     steps:
-      - uses: c-hive/gha-yarn-cache@v2
-        run: yarn run test
+    - name: Run tests
+    - uses: c-hive/gha-yarn-cache@v2
+      run: yarn run test
