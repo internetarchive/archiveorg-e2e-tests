@@ -28,6 +28,7 @@ jobs:
 
     steps:
     # - uses: c-hive/gha-yarn-cache@v2
+      - uses: actions/checkout@v2
       - uses: DevExpress/testcafe-action@latest
         with:
           args: "chrome test"
