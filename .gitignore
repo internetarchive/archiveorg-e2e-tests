@@ -8,6 +8,8 @@
 ## npm
 /node_modules/
 /npm-debug.log
+# we are using yarn.lock
+package-lock.json
 
 ## testing
 /coverage/
@@ -19,5 +21,3 @@
 /_site/
 /dist/
 /out-tsc/
-
-storybook-static
