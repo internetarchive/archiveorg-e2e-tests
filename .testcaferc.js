@@ -1,8 +1,8 @@
 module.exports = {
     color: true,
     browsers: [
-        "chrome:headless",
-        // "firefox:headless",
+        "chrome",
+        // "firefox",
       ],
     src: ["test/**/*test.ts"]
 }
