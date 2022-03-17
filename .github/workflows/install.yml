@@ -8,8 +8,6 @@ jobs:
     name: Install dependencies
 
     steps:
-      - uses: actions/checkout@v1
-        # name: Check out repo
       - uses: actions/setup-node@v1
         name: Cache node modules
         with:
