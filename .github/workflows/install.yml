@@ -1,0 +1,21 @@
+name: Install Environment
+
+on: workflow_call
+
+jobs:
+  install_node_modules:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Load Node 16.x
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      
+      - name: Cache node modules
+      - uses: c-hive/gha-yarn-cache@v2
+
+      - name: Install node_modules
+        run: yarn install
