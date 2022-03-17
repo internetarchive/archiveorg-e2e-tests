@@ -7,7 +7,8 @@ on:
 jobs:
   install:
     runs-on: ubuntu-latest
-    uses: ./.github/workflows/install.yml
+    steps:
+      - uses: ./.github/workflows/install.yml
 
   test:
     needs: install
