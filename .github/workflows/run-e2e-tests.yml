@@ -1,0 +1,15 @@
+name: Run E2E Tests
+
+on: workflow_call
+
+jobs:
+  test:
+    needs: install
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: DevExpress/testcafe-action@latest
+        with:
+          skip-install: true
+          args: "--config-file ./.testcaferc.js"

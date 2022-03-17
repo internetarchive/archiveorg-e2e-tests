@@ -6,16 +6,7 @@ on:
 
 jobs:
   install:
-    # runs-on: ubuntu-latest
     uses: ./.github/workflows/install.yml
 
-  # test:
-  #   needs: install
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: DevExpress/testcafe-action@latest
-  #       with:
-  #         skip-install: true
-  #         args: "chrome test"
+  run-e2e-tests:
+    uses: ./.github/workflows/run-e2e-tests.yml
