@@ -4463,7 +4463,7 @@ testcafe-reporter-xunit@^2.2.1:
 
 testcafe@^1.18.4:
   version "1.18.4"
-  resolved "https://registry.npmjs.org/testcafe/-/testcafe-1.18.4.tgz"
+  resolved "https://registry.yarnpkg.com/testcafe/-/testcafe-1.18.4.tgz#6870a75941893de44f7947c95c65c75741dcf9df"
   integrity sha512-i/fDhEXtQjQeva4JGLAJpo5J8uEY75ojb3T6Vp8zja3ffvXPwEm2evbfsaGbvGBdPChV+7BFsA0+5js5I81nOQ==
   dependencies:
     "@babel/core" "^7.12.1"
