@@ -4,7 +4,6 @@ on: workflow_call
 
 jobs:
   test:
-    needs: install
     runs-on: ubuntu-latest
 
     steps:
