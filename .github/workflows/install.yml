@@ -5,7 +5,7 @@ on: workflow_call
 jobs:
   install_node_modules:
     runs-on: ubuntu-latest
-    name: Install dependencies
+    name: "yarn"
 
     steps:
       - uses: actions/checkout@v3

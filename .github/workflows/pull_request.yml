@@ -8,6 +8,6 @@ jobs:
   install:
     uses: ./.github/workflows/install.yml
 
-  run-e2e-tests:
+  all-tests:
     needs: install
     uses: ./.github/workflows/run-e2e-tests.yml
