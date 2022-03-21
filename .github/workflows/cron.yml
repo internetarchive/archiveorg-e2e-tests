@@ -2,7 +2,7 @@ name: Cron tests
 
 on: 
   schedule:
-      - cron: "*/10 * * * *" #every 10 mins
+      - cron: "*/15 * * * *" #every 15 mins
       # - cron: "0 13 * * 1" # Every Monday at 1PM UTC (9AM EST)
 
 jobs:
