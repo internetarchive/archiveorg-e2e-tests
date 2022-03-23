@@ -13,6 +13,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16.x
+          cache: 'yarn'
       - name: Cache BookReader test files
         uses: actions/cache@v2
         id: br-files-cache
@@ -32,4 +33,5 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 16.x
+          cache: 'yarn'
       - run: yarn run run-br-tests
