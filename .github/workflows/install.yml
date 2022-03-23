@@ -8,13 +8,14 @@ jobs:
     name: "npm"
 
     steps:
-      - name: Checkout branch ${{ github.ref }}
       - uses: actions/checkout@v3
+      - name: Checkout branch ${{ github.ref }}
       - uses: actions/setup-node@v2
         with:
           node-version: '16.x'
           cache: 'npm'
       - run: npm install
+
       - name: Cache node_modules
         uses: actions/cache@v2
         id: cache
