@@ -25,7 +25,7 @@ jobs:
       - uses: actions/upload-artifact@master
         with:
           name: br-e2e-tests
-          path: br-e2e-tests/
+          path: ${{ github.workspace }}/br-e2e-tests
   
   br-tests:
     runs-on: ubuntu-latest
@@ -51,4 +51,4 @@ jobs:
       - uses: DevExpress/testcafe-action@latest
         with:
           skip-install: true
-          args: "chrome, firefox, --color --quarantine ../br-e2e-tests/ia-production/ia-prod-base.js"
+          args: "chrome, firefox, --color --quarantine path: ${{ github.workspace }}/br-e2e-tests/br-e2e-tests/ia-production/ia-prod-base.js"
