@@ -19,7 +19,8 @@
     "circular": "madge --circular --extensions ts .",
     "test": "yarn run lint && yarn run circular && yarn testcafe",
     "test:dev": "testcafe --live --dev",
-    "port-br-files": "rm -rf br-e2e-tests && mkdir br-e2e-tests && npx copyfiles -V -u 5 node_modules/@internetarchive/bookreader/tests/e2e/** br-e2e-tests && npx copyfiles -V -u 5 node_modules/@internetarchive/bookreader/tests/e2e/**/*.* br-e2e-tests && echo 'BR Files ported: \n' && ls -lh br-e2e-tests"
+    "port-br-files": "rm -rf br-e2e-tests && mkdir br-e2e-tests && npx copyfiles -V -u 5 node_modules/@internetarchive/bookreader/tests/e2e/** br-e2e-tests && npx copyfiles -V -u 5 node_modules/@internetarchive/bookreader/tests/e2e/**/*.* br-e2e-tests && echo 'BR Files ported: \n' && ls -lh br-e2e-tests",
+    "run-br-tests": "yarn run testcafe chrome, firefox, --color --quarantine br-e2e-tests/ia-production/ia-prod-base.js"
   },
   "types": "dist/index.d.ts",
   "dependencies": {
