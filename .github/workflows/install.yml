@@ -8,9 +8,25 @@ jobs:
     name: "npm"
 
     steps:
+      - name: Checkout branch ${{ github.ref }}
       - uses: actions/checkout@v3
+      - name: Npm i
       - uses: actions/setup-node@v2
         with:
           node-version: '16.x'
           cache: 'npm'
       - run: npm install
+      - name: Cache node_modules
+        uses: actions/cache@v2
+        id: cache
+        with:
+          # Caching node_modules isn't recommended because it can break across
+          # Node versions and won't work with npm ci (See https://github.com/actions/cache/blob/main/examples.md#node---npm )
+          # But we pin the node version, and we don't update it that often anyways. And
+          # we don't use `npm ci` specifically to try to get faster CI flows. So caching
+          # `node_modules` directly.
+          path: 'node_modules'
+          key: ${{ runner.os }}-node-16-${{ hashFiles('package*.json') }}
+      - if: steps.cache.outputs.cache-hit != 'true'
+        run: npm install
+      
