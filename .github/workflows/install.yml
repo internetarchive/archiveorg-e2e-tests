@@ -5,17 +5,12 @@ on: workflow_call
 jobs:
   install_node_modules:
     runs-on: ubuntu-latest
-    name: "yarn"
+    name: "npm"
 
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v2
         with:
-          node-version: '16'
-          cache: 'yarn'
-      - run: yarn install
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-          cache: 'yarn'
-      - run: yarn global add testcafe
+          node-version: '16.x'
+          cache: 'npm'
+      - run: npm install
