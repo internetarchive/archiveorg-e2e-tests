@@ -31,4 +31,4 @@ jobs:
         with:
           node-version: '16'
           cache: 'yarn'
-      - run: yarn testcafe chrome, firefox, --color --quarantine br-e2e-tests/ia-production/ia-prod-base.js
+      - run: yarn run testcafe chrome, firefox, --color --quarantine br-e2e-tests/ia-production/ia-prod-base.js
