@@ -1,0 +1,17 @@
+name: Run all
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  install:
+    uses: ./.github/workflows/install.yml
+
+  all-tests:
+    needs: install
+    uses: ./.github/workflows/run-e2e-tests.yml
+
+  br-tests:
+    needs: install
+    uses: ./.github/workflows/bookreader-e2e-tests.yml
