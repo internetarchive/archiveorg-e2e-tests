@@ -18,4 +18,4 @@ jobs:
         with:
           node-version: '16'
           cache: 'yarn'
-      - run: yarn install -g testcafe
+      - run: yarn global add testcafe

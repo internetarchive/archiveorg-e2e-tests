@@ -25,6 +25,7 @@ jobs:
   br-tests:
     runs-on: ubuntu-latest
     name: "E2E Tests => archive.org"
+    needs: copy-br-files
 
     steps:
       - uses: actions/checkout@v2
