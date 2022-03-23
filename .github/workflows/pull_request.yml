@@ -11,3 +11,7 @@ jobs:
   all-tests:
     needs: install
     uses: ./.github/workflows/run-e2e-tests.yml
+
+  br-tests:
+    needs: install
+    uses: ./.github/workflows/bookreader-e2e-tests.yml
