@@ -30,9 +30,8 @@ jobs:
     name: "Run BookReader's E2E Tests against archive.org"
     steps:
       - uses: actions/checkout@v2
-      - uses: DevExpress/testcafe-action@latest
+      - uses: actions/setup-node@v2
         with:
-          skip-install: true
-          args: "chrome, firefox, --color --quarantine br-e2e-tests/ia-production/ia-prod-base.js"
-
-
+          node-version: '16'
+          cache: 'yarn'
+      - run: yarn testcafe chrome, firefox, --color --quarantine br-e2e-tests/ia-production/ia-prod-base.js
