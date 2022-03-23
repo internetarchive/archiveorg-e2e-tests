@@ -30,13 +30,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      # - uses: actions/setup-node@v2
+      #   with:
+      #     node-version: '16.x'
+      #     cache: 'yarn'
+      # - run: yarn global add testcafe
+      # - uses: actions/setup-node@v2
+      #   with:
+      #     node-version: '16.x'
+      #     cache: 'yarn'
+      # - run: yarn run run-br-tests
+      - uses: DevExpress/testcafe-action@latest
         with:
-          node-version: '16'
-          cache: 'yarn'
-      - run: yarn global add testcafe
-      - uses: actions/setup-node@v2
-        with:
-          node-version: 16.x
-          cache: 'yarn'
-      - run: yarn run run-br-tests
+          skip-install: true
+          args: "chrome, firefox, --color --quarantine ../br-e2e-tests/ia-production/ia-prod-base.js"

@@ -8,9 +8,9 @@ jobs:
   install:
     uses: ./.github/workflows/install.yml
 
-  all-tests:
-    needs: install
-    uses: ./.github/workflows/run-e2e-tests.yml
+  # all-tests:
+  #   needs: install
+  #   uses: ./.github/workflows/run-e2e-tests.yml
 
   br-tests:
     needs: install
