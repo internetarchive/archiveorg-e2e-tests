@@ -1,8 +1,6 @@
-name: Pull Request
+name: BR E2E Tests
 
-on:
-  pull_request:
-    branches: [ main ]
+on: workflow_call
 
 jobs:
   install:
