@@ -17,7 +17,7 @@ jobs:
           cache: 'npm'
       - run: npm i --ignore-scripts
       - name: Look inside current dir
-        run: ls -lh . && cwd && echo ${{ github.workspace }}
+        run: ls -lh .
       - name: Make ~/br-e2e-tests
         run: rm -rf br-e2e-tests && mkdir br-e2e-tests
       - run: npx copyfiles -V -u 5 node_modules/@internetarchive/bookreader/tests/e2e/** br-e2e-tests
