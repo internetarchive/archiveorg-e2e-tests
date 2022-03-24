@@ -23,20 +23,15 @@ jobs:
         with:
           node-version: '16.x'
           cache: 'npm'
-      - name: Cache BookReader test files
-        uses: actions/cache@v2
-        id: br-files-cache
-        with:
-          path: 'br-e2e-tests'
-          key: br-e2e-tests-${{  hashFiles('.github/workflows/**') }}
-      - if: steps.br-files-cache.outputs.cache-hit != 'true'
-        run: mkdir br-e2e-tests && npx copyfiles -V -u 5 ./node_modules/@internetarchive/bookreader/tests/e2e/** ./br-e2e-tests && npx copyfiles -V -u 5 ./node_modules/@internetarchive/bookreader/tests/e2e/**/*.* ./br-e2e-tests && ls -lh ./br-e2e-tests && pwd && ls -lh .
+        run: mkdir br-e2e-tests && npx copyfiles -V -u 5 node_modules/@internetarchive/bookreader/tests/e2e/** br-e2e-tests && npx copyfiles -V -u 5 node_modules/@internetarchive/bookreader/tests/e2e/**/*.* br-e2e-tests && ls -lh br-e2e-tests && pwd && ls -lh .
+
 
       - uses: actions/setup-node@v2
         with:
           node-version: '16.x'
           cache: 'npm'
         run: npx testcafe chrome, firefox, --color --quarantine br-e2e-tests/ia-production/ia-prod-base.js
+
 
   # br-tests:
   #   runs-on: ubuntu-latest
