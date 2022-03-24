@@ -2,6 +2,7 @@ module.exports = {
     color: true,
     quarantineMode: true,
     debugOnFail: true,
+    concurrency: 2,
     browsers: [
         "chrome",
         "firefox",
@@ -9,5 +10,5 @@ module.exports = {
         // "chrome:headless",
         // "firefox:headless"
       ],
-    src: ["/home/user/tests/**/*.js", "!test/music/**"]
+    src: ["test/**/*test.*", "!test/music/**"]
 }

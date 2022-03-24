@@ -1,7 +1,7 @@
 import { ClientFunction, Selector } from 'testcafe';
 
 const musicItemUrl =
-  'https://www-isa.archive.org/details/cd_mystery-sound-effects_gateway-gecordings';
+  'https://archive.org/details/cd_mystery-sound-effects_gateway-gecordings';
 fixture`Music Player`.page`${musicItemUrl}`;
 
 const getWindowLocation = ClientFunction(() => window.location);

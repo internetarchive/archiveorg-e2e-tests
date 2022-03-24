@@ -14,5 +14,5 @@ jobs:
   books:
     uses: ./.github/workflows/books.yml
 
-  # bookreader:
-  #   uses: ./.github/workflows/bookreader-e2e-tests.yml
+  bookreader:
+    uses: ./.github/workflows/bookreader-e2e-tests.yml
