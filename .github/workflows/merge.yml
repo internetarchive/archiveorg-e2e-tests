@@ -1,4 +1,4 @@
-name: On Merge to $default-branch
+name: Merges to $default-branch
 
 on:
   pull_request:

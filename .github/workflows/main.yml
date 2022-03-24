@@ -1,4 +1,4 @@
-name: PRs & Pushes to $default-branch
+name: PRs & Pushes
 
 on:
   push:
