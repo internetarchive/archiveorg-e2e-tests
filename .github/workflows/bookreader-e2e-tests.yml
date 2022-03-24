@@ -22,13 +22,14 @@ jobs:
           path: node_modules
           key: ${{ runner.os }}-node-16-${{ hashFiles('package*.json') }}
       - if: steps.cache.outputs.cache-hit != 'true'
-        run: npm install
+        run: npm i
+      - run: npm i
       - run: ls -lh .
       - run: rm -rf br-e2e-tests && mkdir br-e2e-tests
       - run: npx copyfiles -V -u 5 node_modules/@internetarchive/bookreader/tests/e2e/** br-e2e-tests
       - run: npx copyfiles -V -u 5 node_modules/@internetarchive/bookreader/tests/e2e/**/*.* br-e2e-tests
       - run: ls -lh br-e2e-tests && pwd && ls -lh .
-      - run: npx testcafe chrome, firefox, --color --quarantine br-e2e-tests/ia-production/ia-prod-base.js
+      - run: npx testcafe chrome:headless, firefox:headless, --color --quarantine br-e2e-tests/ia-production/ia-prod-base.js
 
       # - name: Load node_modules from cache
       #   uses: actions/cache@v2
