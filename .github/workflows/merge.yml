@@ -1,8 +1,8 @@
-name: Merges to $default-branch
+name: Merges to main
 
 on:
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ main ]
     types: [ closed ]
 
 jobs:
