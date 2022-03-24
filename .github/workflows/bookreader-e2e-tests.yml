@@ -12,7 +12,7 @@ jobs:
     steps:
       - run: echo ${{ runner.temp }}
       - name: Checkout branch ${{ github.ref }}
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
       - name: Load node_modules from cache
         uses: actions/cache@v2
         with:
@@ -21,7 +21,7 @@ jobs:
           key: ${{ runner.os }}-node-16-${{ hashFiles('package*.json') }}
       - uses: actions/setup-node@v2
         with:
-          node-version: 16.x
+          node-version: '16.x'
           cache: 'npm'
       - name: Cache BookReader test files
         uses: actions/cache@v2
@@ -57,4 +57,4 @@ jobs:
       - uses: DevExpress/testcafe-action@latest
         with:
           skip-install: true
-          args: "chrome, firefox, --color --quarantine path: ${{ github.workspace }}/br-e2e-tests/br-e2e-tests/ia-production/ia-prod-base.js"
+          args: "chrome, firefox, --color --quarantine path: ${{ github.workspace }}/br-e2e-tests/ia-production/ia-prod-base.js"
