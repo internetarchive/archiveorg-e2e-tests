@@ -1,0 +1,24 @@
+name: Check lint & circular dependencies
+
+on: workflow_call
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+          cache: 'npm'
+      - uses: actions/cache@v2
+        name: Cache node_modules
+        id: cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-16-${{ hashFiles('package*.json') }}
+      - if: steps.cache.outputs.cache-hit != 'true'
+        run: npm install
+      - name: Lint & Circular check on local test files
+        run: npm run test-lint-circ

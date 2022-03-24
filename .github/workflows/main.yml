@@ -1,19 +1,18 @@
-name: Run all
+name: All tests
 
 on:
   pull_request:
     branches: [ main ]
 
 jobs:
-  bookreader:
-    uses: ./.github/workflows/bookreader-e2e-tests.yml
+  lint-n-circular:
+    uses: ./.github/workflows/check-lint-circ.yml
 
   music:
     uses: ./.github/workflows/music.yml
 
-  # books:
-  #   uses: ./.github/workflows/books.yml
+  books:
+    uses: ./.github/workflows/books.yml
 
-  # all-tests:
-  #   needs: install
-  #   uses: ./.github/workflows/run-e2e-tests.yml
+  bookreader:
+    uses: ./.github/workflows/bookreader-e2e-tests.yml
