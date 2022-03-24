@@ -11,14 +11,21 @@ jobs:
 
     steps:
       - run: echo ${{ runner.temp }}
-      - name: Checkout branch ${{ github.ref }}
-        uses: actions/checkout@v2
-      - name: copy over bookreader files
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'npm'
+      - run: npm install
+      - run: npm test
+      - uses: actions/setup-node@v2
         with:
           node-version: '16.x'
           cache: 'npm'
-        run: mkdir br-e2e-tests && npx copyfiles -V -u 5 node_modules/@internetarchive/bookreader/tests/e2e/** br-e2e-tests && npx copyfiles -V -u 5 node_modules/@internetarchive/bookreader/tests/e2e/**/*.* br-e2e-tests && ls -lh br-e2e-tests && pwd && ls -lh .
+      - run: mkdir br-e2e-tests && ls -lh .
+      - run: npx copyfiles -V -u 5 node_modules/@internetarchive/bookreader/tests/e2e/** br-e2e-tests
+      - run: npx copyfiles -V -u 5 node_modules/@internetarchive/bookreader/tests/e2e/**/*.* br-e2e-tests
+      - run: ls -lh br-e2e-tests && pwd && ls -lh .
 
       # - name: Load node_modules from cache
       #   uses: actions/cache@v2
