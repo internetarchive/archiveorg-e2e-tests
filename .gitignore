@@ -8,8 +8,7 @@
 ## npm
 /node_modules/
 /npm-debug.log
-# we are using yarn.lock
-package-lock.json
+yarn.lock
 
 ## testing
 /coverage/

@@ -3,21 +3,22 @@ name: BR E2E Tests
 on: workflow_call
 
 jobs:
-# "rm -rf br-e2e-tests && mkdir br-e2e-tests && npx copyfiles -V -u 5 node_modules/@internetarchive/bookreader/tests/e2e/** br-e2e-tests && npx copyfiles -V -u 5 node_modules/@internetarchive/bookreader/tests/e2e/**/*.* br-e2e-tests && echo 'BR Files ported: \n' && ls -lh br-e2e-tests",
-
   copy-br-files:
     runs-on: ubuntu-latest
     name: "run on archive.org"
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Check out branch
+        uses: actions/checkout@v2
+      - name: Grab Node 16.x
+        uses: actions/setup-node@v2
         with:
           node-version: '16.x'
           cache: 'npm'
       - run: npm i --ignore-scripts
       - name: Look inside current dir
         run: ls -lh .
-      - run: npm run port-br-files
-      - name: Run BR E2E tests!
-        run: npx testcafe chrome:headless, firefox:headless, --color --quarantine br-e2e-tests/ia-production/ia-prod-base.js
+      - name: Grab BR's E2E files
+        run: npm run port-br-files
+      - name: 📚 📖 BR E2E tests! 📖 📚
+        run: npx testcafe chrome:headless, firefox:headless, --color --quarantine br-e2e-tests/ia-production/*.js
