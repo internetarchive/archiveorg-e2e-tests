@@ -17,9 +17,10 @@ jobs:
         uses: actions/cache@v2
         with:
           # Use node_modules from previous jobs
-          path: 'node_modules'
+          path: node_modules
           key: ${{ runner.os }}-node-16-${{ hashFiles('package.json') }}
-      - uses: actions/setup-node@v2
+      - name: copy over bookreader files
+        uses: actions/setup-node@v2
         with:
           node-version: '16.x'
           cache: 'npm'
