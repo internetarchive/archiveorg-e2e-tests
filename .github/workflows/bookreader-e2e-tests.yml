@@ -38,7 +38,7 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: 'br-e2e-tests'
-          key: br-e2e-tests-${{  hashFiles('~/.github/workflows) }}
+          key: br-e2e-tests-${{  hashFiles('~/.github/workflows)   }}
         run: npx testcafe chrome, firefox, --color --quarantine br-e2e-tests/ia-production/ia-prod-base.js
 
   # br-tests:
