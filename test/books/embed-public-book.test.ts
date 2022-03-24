@@ -10,7 +10,8 @@ test('Page load', async t => {
   const location = await getWindowLocation();
   await t
     .expect(location.href)
-    .eql(
-      'https://archive.org/details/bbn0288.0001.001.umich.edu?view=theater&ui=embed&wrapper=false'
-    );
+    .contains('https://archive.org/details/bbn0288.0001.001.umich.edu');
+  await t
+    .expect(location.href)
+    .contains('?view=theater&ui=embed&wrapper=false');
 });
