@@ -21,4 +21,4 @@ jobs:
       - if: steps.cache.outputs.cache-hit != 'true'
         run: npm install
       - name: Lint & Circular check on local test files
-        run: npm run test-lint-circ
+        run: npm run test:lint-circ

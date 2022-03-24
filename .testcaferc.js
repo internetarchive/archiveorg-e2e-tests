@@ -1,8 +1,13 @@
 module.exports = {
     color: true,
+    quarantineMode: true,
+    debugOnFail: true,
     browsers: [
         "chrome",
-        // "firefox",
+        "firefox",
+        /* Headless is used in GHA, adding here for visibility */
+        // "chrome:headless",
+        // "firefox:headless"
       ],
-    src: ["test/**/*test.ts"]
+    src: ["/home/user/tests/**/*.js", "!test/music/**"]
 }

@@ -26,4 +26,4 @@ jobs:
         uses: DevExpress/testcafe-action@latest
         with:
           skip-install: true
-          args: "chrome:headless, --color --quarantine test/music/**.test.*"
+          args: "--config-file .testcafe-music.js"
