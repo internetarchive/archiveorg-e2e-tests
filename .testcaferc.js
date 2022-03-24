@@ -1,7 +1,6 @@
 module.exports = {
     color: true,
     quarantineMode: true,
-    debugOnFail: true,
     concurrency: 2,
     browsers: [
         "chrome",
