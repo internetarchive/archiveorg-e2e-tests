@@ -10,7 +10,7 @@ jobs:
     name: "Port tests over"
 
     steps:
-      - run: echo ${{ runner.temp }}
+      - run: echo ${{ runner.temp }} && ${{ github.ref }}
       - name: Checkout branch ${{ github.ref }}
         uses: actions/checkout@v2
       - name: Load node_modules from cache
@@ -18,7 +18,7 @@ jobs:
         with:
           # Use node_modules from previous jobs
           path: 'node_modules'
-          key: ${{ runner.os }}-node-16-${{ hashFiles('package*.json') }}
+          key: ${{ runner.os }}-node-16-${{ hashFiles('~/.github/workflows) }}
       - uses: actions/setup-node@v2
         with:
           node-version: '16.x'
@@ -27,18 +27,19 @@ jobs:
         uses: actions/cache@v2
         id: br-files-cache
         with:
-          path: './br-e2e-tests'
-          key: br-e2e-tests-${{ hashFiles('package.json') }}
+          path: 'br-e2e-tests'
+          key: br-e2e-tests-${{  hashFiles('~/.github/workflows) }}
       - if: steps.br-files-cache.outputs.cache-hit != 'true'
         run: mkdir br-e2e-tests && npx copyfiles -V -u 5 ./node_modules/@internetarchive/bookreader/tests/e2e/** ./br-e2e-tests && npx copyfiles -V -u 5 ./node_modules/@internetarchive/bookreader/tests/e2e/**/*.* ./br-e2e-tests && ls -lh ./br-e2e-tests && pwd
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+          cache: 'npm'
       - uses: actions/cache@v2
         with:
-          path: './br-e2e-tests'
-          key: br-e2e-tests-${{ hashFiles('package.json') }}
-      - uses: DevExpress/testcafe-action@latest
-        with:
-          skip-install: true
-          args: "chrome, firefox, --color --quarantine ./br-e2e-tests/ia-production/ia-prod-base.js"
+          path: 'br-e2e-tests'
+          key: br-e2e-tests-${{  hashFiles('~/.github/workflows) }}
+        run: npx testcafe chrome, firefox, --color --quarantine br-e2e-tests/ia-production/ia-prod-base.js
 
   # br-tests:
   #   runs-on: ubuntu-latest
