@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '16.x'
           cache: 'npm'
-        run: npm i  --ignores-scripts
+      - run: npm i --ignore-scripts
       - name: Look inside current dir
         run: ls -lh . && cwd && echo ${{ github.workspace }}
       - name: Make ~/br-e2e-tests
