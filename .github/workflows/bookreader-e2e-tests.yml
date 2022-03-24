@@ -12,21 +12,24 @@ jobs:
     steps:
       - run: echo ${{ runner.temp }}
       - uses: actions/checkout@v2
+
       - uses: actions/setup-node@v2
         with:
           node-version: '16.x'
           cache: 'npm'
-      - run: npm i
       - uses: actions/cache@v2
         name: Cache node_modules
         id: cache
         with:
           path: node_modules
           key: ${{ runner.os }}-node-16-${{ hashFiles('package*.json') }}
+      - if: steps.cache.outputs.cache-hit != 'true'
+        run: npm install
       - run: rm -rf br-e2e-tests && mkdir br-e2e-tests && ls -lh . && ls -lh node_modules
       - run: npx copyfiles -V -u 5 node_modules/@internetarchive/bookreader/tests/e2e/** br-e2e-tests
       - run: npx copyfiles -V -u 5 node_modules/@internetarchive/bookreader/tests/e2e/**/*.* br-e2e-tests
       - run: ls -lh br-e2e-tests && pwd && ls -lh .
+      - run: npx testcafe chrome, firefox, --color --quarantine br-e2e-tests/ia-production/ia-prod-base.js
 
       # - name: Load node_modules from cache
       #   uses: actions/cache@v2
