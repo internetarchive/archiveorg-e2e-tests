@@ -17,4 +17,3 @@ jobs:
   # all-tests:
   #   needs: install
   #   uses: ./.github/workflows/run-e2e-tests.yml
-s
