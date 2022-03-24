@@ -26,4 +26,4 @@ jobs:
         uses: DevExpress/testcafe-action@latest
         with:
           skip-install: true
-          args: "chrome:headless, firefox:headless, --color --quarantine test/books/**.test.*"
+          args: "--config-file .testcaferc.js"

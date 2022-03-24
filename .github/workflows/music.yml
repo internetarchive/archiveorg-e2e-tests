@@ -22,9 +22,9 @@ jobs:
           key: ${{ runner.os }}-node-16-${{ hashFiles('package*.json') }}
       - if: steps.cache.outputs.cache-hit != 'true'
         run: npm install --ignore-scripts
-      - run: ls -lh . && pwd && cwd
+      - run: ls -lh . && pwd
       - name: 🎶 📻 🎶 Music Tests! 🎶 📻 🎶
         uses: DevExpress/testcafe-action@latest
         with:
           skip-install: true
-          args: "--config-file ~/.testcafe-music.js"
+          args: "--config-file .testcaferc-music.js"
