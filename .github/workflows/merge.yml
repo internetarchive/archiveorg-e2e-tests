@@ -1,20 +1,23 @@
-name: PRs & Pushes to $default-branch
+name: On Merge to $default-branch
 
 on:
-  push:
-    branches: [ $default-branch ]
   pull_request:
     branches: [ $default-branch ]
+    types: [ closed ]
 
 jobs:
   lint-n-circular:
+    if: github.event.pull_request.merged == true
     uses: ./.github/workflows/check-lint-circ.yml
 
   music:
+    if: github.event.pull_request.merged == true  
     uses: ./.github/workflows/music.yml
 
   books:
+    if: github.event.pull_request.merged == true
     uses: ./.github/workflows/books.yml
 
   bookreader:
+    if: github.event.pull_request.merged == true
     uses: ./.github/workflows/bookreader-e2e-tests.yml

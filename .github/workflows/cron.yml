@@ -1,14 +1,19 @@
-name: Cron tests
+name: Automated
 
-on: 
+on:
+  push:
   schedule:
-      - cron: "*/15 * * * *" #every 15 mins
-      # - cron: "0 13 * * 1" # Every Monday at 1PM UTC (9AM EST)
+    - cron: "*/17 * * * *" # every 17 mins
 
 jobs:
-  install:
-    uses: ./.github/workflows/install.yml
+  lint-n-circular:
+    uses: ./.github/workflows/check-lint-circ.yml
 
-  run-e2e-tests:
-    needs: install
-    uses: ./.github/workflows/run-e2e-tests.yml
+  music:
+    uses: ./.github/workflows/music.yml
+
+  books:
+    uses: ./.github/workflows/books.yml
+
+  bookreader:
+    uses: ./.github/workflows/bookreader-e2e-tests.yml
