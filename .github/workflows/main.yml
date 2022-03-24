@@ -5,13 +5,16 @@ on:
     branches: [ main ]
 
 jobs:
-  # install:
-  #   uses: ./.github/workflows/install.yml
+  bookreader:
+    uses: ./.github/workflows/bookreader-e2e-tests.yml
+
+  music:
+    uses: ./.github/workflows/music.yml
+
+  # books:
+  #   uses: ./.github/workflows/books.yml
 
   # all-tests:
   #   needs: install
   #   uses: ./.github/workflows/run-e2e-tests.yml
-
-  br-tests:
-    # needs: install
-    uses: ./.github/workflows/bookreader-e2e-tests.yml
+s
