@@ -22,7 +22,7 @@
     "test:br": "npm run port-br-files && npx testcafe chrome:headless, firefox:headless, --color --quarantine br-e2e-tests/ia-production/*.js",
     "test:dev": "testcafe --live --dev --color --debug-on-fail test",
     "test:lint-circ": "npm run lint && npm run circular",
-    "test:music": "testcafe --config-file .testcaferc-music.js",
+    "test:music": "testcafe chrome --config-file .testcaferc-music.js",
     "test:all": "testcafe --config-file .testcaferc.js"
   },
   "types": "dist/index.d.ts",
