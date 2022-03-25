@@ -1,8 +1,8 @@
-module.exports = {
-    color: true,
-    quarantineMode: true,
-    browsers: [
-        "chrome",
-      ],
-    src: ["test/music/*test.ts"]
-}
+import * as MainConfig from './.testcaferc.js';
+
+const musicConfig = {
+  ...MainConfig,
+  browsers: ['chrome']
+};
+
+module.exports = musicConfig;
