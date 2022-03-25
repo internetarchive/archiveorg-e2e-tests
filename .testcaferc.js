@@ -10,8 +10,8 @@ module.exports = {
         // 'firefox:headless'
       ],
     src: ['test/**/*test.*', '!test/music/**'],
-    reporter: {
-      name: 'json',
-      output: 'reports/report.json'
-    },
+    // reporter: {
+    //   name: 'json',
+    //   output: 'reports/report.json'
+    // },
 }
