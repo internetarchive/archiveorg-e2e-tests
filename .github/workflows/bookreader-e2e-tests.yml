@@ -21,4 +21,4 @@ jobs:
       - name: Grab BR's test files
         run: npm run port-br-files
       - name: 📚 📖 BR E2E tests! 📖 📚
-        run: npx run test:br
+        run: npm run test:br
