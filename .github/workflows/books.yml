@@ -26,4 +26,4 @@ jobs:
         uses: DevExpress/testcafe-action@latest
         with:
           skip-install: true
-          args: "--config-file .testcaferc.js"
+          args: "--config-file .testcaferc.js test/books/**test.ts"

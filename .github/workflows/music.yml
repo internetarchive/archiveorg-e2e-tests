@@ -27,4 +27,4 @@ jobs:
         uses: DevExpress/testcafe-action@latest
         with:
           skip-install: true
-          args: "chrome --config-file .testcaferc.js test/music/**"
+          args: "chrome --config-file .testcaferc.js test/music/**test.ts"
