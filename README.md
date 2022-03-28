@@ -11,10 +11,9 @@
 
 - run: `npm i`
 - add new test file in `~/test` directory
-  - currently, there are dirs: `books, music`, add your new test file does not touch either, feel free to make a new directory.
+  - currently, there are dirs: `books, music`, if your new test file does not touch either, feel free to make a new directory.
     - If you are making a new directory:
-        - you probably need a new GHA workflow.
-        - you may need a custom testcafe config file.
+        - you probably need a new GHA workflow and/or update current ones
 
 ## Creating a GHA workflow
 
@@ -24,7 +23,6 @@
 
 main job tickets
 - main.yml
-- cron.yml
 - merge.yml
 
 reusable workflows
