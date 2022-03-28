@@ -1,9 +1,9 @@
 {
-  "name": "@internetarchive/your-webcomponent",
-  "description": "The Internet Archive Typescript WebComponent template. It is based on the @open-wc template.",
+  "name": "@internetarchive/archiveorg-e2e-tests",
+  "description": "Repo to run archive.org E2E tests with Testcafe.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/internetarchive/iaux-your-webcomponent.git"
+    "url": "git+https://github.com/internetarchive/archiveorg-e2e-tests.git"
   },
   "license": "AGPL-3.0-only",
   "author": "Internet Archive",
@@ -17,30 +17,32 @@
     "lint": "eslint --ext .ts,.html . --ignore-path .gitignore && prettier \"**/*.ts\" --check --ignore-path .gitignore",
     "format": "eslint --ext .ts,.html . --fix --ignore-path .gitignore && prettier \"**/*.ts\" --write --ignore-path .gitignore",
     "circular": "madge --circular --extensions ts .",
-    "test": "tsc && yarn run lint && yarn run circular && wtr --coverage",
-    "test:watch": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wtr --watch\""
+    "port-br-files": "rm -rf br-e2e-tests && mkdir br-e2e-tests && npx copyfiles -V -u 5 node_modules/@internetarchive/bookreader/tests/e2e/** br-e2e-tests && npx copyfiles -V -u 5 node_modules/@internetarchive/bookreader/tests/e2e/**/*.* br-e2e-tests",
+    "test": "npm run test:lint-circ && npm run test:music && npm run test:all && npm run test:br",
+    "test:br": "npm run port-br-files && npx testcafe br-e2e-tests/ia-production/*.js",
+    "test:br:headless": "npm run port-br-files && npx testcafe chrome:headless, firefox:headless, br-e2e-tests/ia-production/*.js",
+    "test:dev": "npx testcafe --live --dev --color --debug-on-fail test",
+    "test:lint-circ": "npm run lint && npm run circular",
+    "test:music": "npx testcafe chrome --config-file .testcaferc.js test/music/**",
+    "test:all": "npx testcafe --config-file .testcaferc.js"
   },
   "types": "dist/index.d.ts",
   "dependencies": {
-    "lit": "^2.0.2"
+    "testcafe": "^1.18.4",
+    "testcafe-reporter-slack": "^0.0.6"
   },
   "devDependencies": {
-    "@open-wc/eslint-config": "^7.0.0",
-    "@open-wc/testing": "^3.0.3",
-    "@typescript-eslint/eslint-plugin": "^5.3.1",
-    "@typescript-eslint/parser": "^5.3.1",
-    "@web/dev-server": "^0.1.28",
-    "@web/test-runner": "^0.13.22",
+    "@internetarchive/bookreader": "^5.0.0-38",
+    "@typescript-eslint/eslint-plugin": "^5.14.0",
+    "@typescript-eslint/parser": "^5.14.0",
     "concurrently": "^6.3.0",
+    "copyfiles": "^2.4.1",
     "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-lit-a11y": "^2.2.0",
-    "eslint-plugin-wc": "^1.3.2",
     "husky": "^7.0.0",
     "madge": "^5.0.1",
     "prettier": "^2.4.1",
-    "sinon": "^12.0.1",
     "tslib": "^2.3.1",
     "typescript": "^4.4.4"
   },
@@ -50,7 +52,6 @@
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
     "extends": [
-      "@open-wc",
       "prettier"
     ],
     "plugins": [

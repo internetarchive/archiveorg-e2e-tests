@@ -1,0 +1,23 @@
+name: Merges to main
+
+on:
+  pull_request:
+    branches: [ main ]
+    types: [ closed ]
+
+jobs:
+  lint-n-circular:
+    if: github.event.pull_request.merged == true
+    uses: ./.github/workflows/check-lint-circ.yml
+
+  music:
+    if: github.event.pull_request.merged == true  
+    uses: ./.github/workflows/music.yml
+
+  books:
+    if: github.event.pull_request.merged == true
+    uses: ./.github/workflows/books.yml
+
+  bookreader:
+    if: github.event.pull_request.merged == true
+    uses: ./.github/workflows/bookreader-e2e-tests.yml

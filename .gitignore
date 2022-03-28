@@ -8,6 +8,7 @@
 ## npm
 /node_modules/
 /npm-debug.log
+yarn.lock
 
 ## testing
 /coverage/
@@ -19,5 +20,3 @@
 /_site/
 /dist/
 /out-tsc/
-
-storybook-static

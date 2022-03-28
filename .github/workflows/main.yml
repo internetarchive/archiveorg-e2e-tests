@@ -1,0 +1,22 @@
+name: PRs, Pushes, Cron
+
+on:
+  schedule:
+    - cron: "0 8 * * *"
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-n-circular:
+    uses: ./.github/workflows/check-lint-circ.yml
+
+  music:
+    uses: ./.github/workflows/music.yml
+
+  books:
+    uses: ./.github/workflows/books.yml
+
+  bookreader:
+    uses: ./.github/workflows/bookreader-e2e-tests.yml
