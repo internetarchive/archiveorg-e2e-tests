@@ -11,7 +11,7 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "scripts": {
-    "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\"",
+    "start": "npm run test:dev",
     "build": "tsc",
     "prepare": "tsc && husky install",
     "lint": "eslint --ext .ts,.html . --ignore-path .gitignore && prettier \"**/*.ts\" --check --ignore-path .gitignore",
@@ -21,7 +21,7 @@
     "test": "npm run test:lint-circ && npm run test:music && npm run test:all && npm run test:br",
     "test:br": "npm run port-br-files && npx testcafe br-e2e-tests/ia-production/*.js",
     "test:br:headless": "npm run port-br-files && npx testcafe chrome:headless, firefox:headless, br-e2e-tests/ia-production/*.js",
-    "test:dev": "npx testcafe --live --dev --color --debug-on-fail test",
+    "test:dev": "npx testcafe -L --color --debug-on-fail",
     "test:lint-circ": "npm run lint && npm run circular",
     "test:music": "npx testcafe chrome --config-file .testcaferc.js test/music/**",
     "test:all": "npx testcafe --config-file .testcaferc.js"
