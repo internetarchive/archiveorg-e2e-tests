@@ -1,5 +1,4 @@
 import { ClientFunction, Selector } from 'testcafe';
-// import { idText } from 'typescript';
 
 const collectionPage = 'https://archive.org/details/@sketch_the_cow';
 
