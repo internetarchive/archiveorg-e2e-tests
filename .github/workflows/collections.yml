@@ -1,4 +1,4 @@
-name: Music E2E Tests
+name: Collections E2E Tests
 
 on: workflow_call
 

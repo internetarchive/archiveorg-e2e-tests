@@ -19,7 +19,6 @@ test('Clicking on facet checkbox update URL & refreshes page', async t => {
 
   await t.click(facetCheckbox);
 
-  // await t.eval(() => location.reload());
   await t.wait(2000);
   await t.eval(() => location.reload(true));
 
