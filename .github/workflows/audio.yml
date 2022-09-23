@@ -23,8 +23,8 @@ jobs:
       - if: steps.cache.outputs.cache-hit != 'true'
         run: npm install --ignore-scripts
       - run: ls -lh . && pwd
-      - name: 🎶 📻 🎶 Music Tests! 🎶 📻 🎶
+      - name: 🎶 📻 🎶 Audio Tests! 🎶 📻 🎶
         uses: DevExpress/testcafe-action@latest
         with:
           skip-install: true
-          args: "chrome --config-file .testcaferc.js test/music"
+          args: "chrome --config-file .testcaferc.js test/audio"
