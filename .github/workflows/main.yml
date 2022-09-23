@@ -20,3 +20,6 @@ jobs:
 
   bookreader:
     uses: ./.github/workflows/bookreader-e2e-tests.yml
+
+  collections:
+    uses: ./.github/workflows/collections.yml

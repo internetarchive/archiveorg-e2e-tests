@@ -1,0 +1,30 @@
+name: Music E2E Tests
+
+on: workflow_call
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: check out branch
+        uses: actions/checkout@v2
+      - name: set up node 16.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+          cache: 'npm'
+      - name: Cache node_modules
+        uses: actions/cache@v2
+        id: cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-16-${{ hashFiles('package*.json') }}
+      - if: steps.cache.outputs.cache-hit != 'true'
+        run: npm install --ignore-scripts
+      - run: ls -lh . && pwd
+      - name: 📁 🧺 📁 Collections Tests! 📁 🧺 📁
+        uses: DevExpress/testcafe-action@latest
+        with:
+          skip-install: true
+          args: "chrome --config-file .testcaferc.js test/collections"
