@@ -12,8 +12,8 @@ jobs:
   lint-n-circular:
     uses: ./.github/workflows/check-lint-circ.yml
 
-  music:
-    uses: ./.github/workflows/music.yml
+  audio:
+    uses: ./.github/workflows/audio.yml
 
   books:
     uses: ./.github/workflows/books.yml
