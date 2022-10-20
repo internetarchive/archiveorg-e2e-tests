@@ -22,8 +22,9 @@
     "test:br:headless": "npm run port-br-files && npx testcafe chrome:headless, firefox:headless, br-e2e-tests/ia-production/*.js",
     "test:dev": "npx testcafe -L --color",
     "test:lint-circ": "npm run lint && npm run circular",
-    "test:music": "npx testcafe chrome --config-file .testcaferc.js test/music/**",
-    "test:all": "npx testcafe --config-file .testcaferc.js"
+    "test:music": "npx testcafe chrome --config-file .testcaferc.js test/audio/**",
+    "test:all": "npx testcafe --config-file .testcaferc.js",
+    "test:search": "npx testcafe chrome --config-file .testcaferc.js test/search/**"
   },
   "types": "dist/index.d.ts",
   "dependencies": {
