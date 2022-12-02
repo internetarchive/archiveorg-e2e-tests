@@ -9,7 +9,7 @@ module.exports = {
         // 'chrome:headless',
         // 'firefox:headless'
       ],
-    src: ['test/**/*test.*', '!test/music/**'],
+    src: ['test/**/*test.*'],
     // reporter: {
     //   name: 'json',
     //   output: 'reports/report.json'
