@@ -23,4 +23,4 @@ jobs:
       - name: 📚 📖 Books tests! 📖 📚
         uses: DevExpress/testcafe-action@latest
         with:
-          args: "--color -q -c 2 chrome:headless,firefox:headless test/books"
+          args: "--color -q -c 2 firefox:headless test/books"
