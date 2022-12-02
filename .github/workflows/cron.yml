@@ -2,7 +2,7 @@ name: PRs, Pushes, Cron
 
 on:
   schedule:
-    - cron: "0 8 * * *"
+    - cron: "0/93 * * * *"
 
 jobs:
   lint-n-circular:
