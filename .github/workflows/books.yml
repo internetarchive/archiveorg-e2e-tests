@@ -1,4 +1,4 @@
-name: Music E2E Tests
+name: Texts/Books E2E Tests
 
 on: workflow_call
 
@@ -26,4 +26,4 @@ jobs:
         uses: DevExpress/testcafe-action@latest
         with:
           skip-install: true
-          args: "--config-file .testcaferc.js test/books"
+          args: "--config-file .testcaferc.js test/books/**/*.test.*"
