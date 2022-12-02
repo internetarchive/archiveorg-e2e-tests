@@ -6,11 +6,12 @@ import { DesktopNav } from '../../br-e2e-tests/models/Navigation.js';
 import { runSearchTests } from './helpers/search-inside.js';
 
 const localURL = 'https://archive.org/details/';
+// Books on archive.org
+// add books when adding their respective tests
 const books = [
   'birdbookillustra00reedrich', // publicDomain
   // 'pianoservicingtu00rebl_0', // borrowable,
   // 'adventuresoftoms00twaiiala', // has chapter markers
-  // 'gendaitankashu00meijuoft', // Right to Left book
   // 'gov.uspto.patents.application.10074026', // multiple files,
   // 'theworksofplato01platiala', //bookreader demo
 ];
