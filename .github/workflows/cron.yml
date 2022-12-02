@@ -1,4 +1,4 @@
-name: PRs, Pushes, Cron
+name: Cron
 
 on:
   schedule:
