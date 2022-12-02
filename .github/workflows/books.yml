@@ -13,12 +13,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
-      - run: npm i
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+      - run: npm ci
       - name: Look inside current dir
         run: ls -lh .
       - name: Grab BR's test files
         run: npm run port-br-files
-      - name: Confrim `br-e2e-tests` dir
-        run: ls -lh br-e2e-tests/
       - name: 📚 📖 Books tests! 📖 📚
-        run: npm run test:br:headless
+        uses: DevExpress/testcafe-action@latest
+        with:
+          args: "--color -q -c 2 chrome:headless,firefox:headless test/books"
