@@ -19,6 +19,4 @@ jobs:
       - name: Grab BR's test files
         run: npm run port-br-files
       - name: 📚 📖 Books tests! 📖 📚
-        uses: DevExpress/testcafe-action@latest
-        with:
-          args: "--color -q -c 2 chrome:headless,firefox:headless test/books"
+        run: npm run test:br:headless
