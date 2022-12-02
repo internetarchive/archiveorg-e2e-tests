@@ -21,5 +21,4 @@ jobs:
       - name: 📚 📖 Books tests! 📖 📚
         uses: DevExpress/testcafe-action@latest
         with:
-          skip-install: true
           args: "--color -q -c 2 chrome:headless,firefox:headless test/books"
