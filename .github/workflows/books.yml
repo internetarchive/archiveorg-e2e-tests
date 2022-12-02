@@ -21,4 +21,4 @@ jobs:
       - name: Confrim `br-e2e-tests` dir
         run: ls -lh br-e2e-tests/
       - name: 📚 📖 Books tests! 📖 📚
-        run: npm run test:br
+        run: npm run test:br:headless
