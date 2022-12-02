@@ -18,12 +18,12 @@
     "format": "eslint --ext .ts,.html . --fix --ignore-path .gitignore && prettier \"**/*.ts\" --write --ignore-path .gitignore",
     "circular": "madge --circular --extensions ts .",
     "port-br-files": "rm -rf br-e2e-tests && mkdir br-e2e-tests && npx copyfiles -V -u 5 node_modules/@internetarchive/bookreader/tests/e2e/** br-e2e-tests && npx copyfiles -V -u 5 node_modules/@internetarchive/bookreader/tests/e2e/**/*.* br-e2e-tests",
-    "test": "npm run test:lint-circ && npm run test:music && npm run test:all && npm run test:br",
-    "test:br": "npm run port-br-files && npx testcafe test/books/**/*.test.*",
-    "test:br:headless": "npm run port-br-files && npx testcafe chrome:headless, firefox:headless, test/books",
+    "test": "npm run test:lint-circ && npm run test:audio && npm run test:all && npm run test:br",
+    "test:br": "npm run port-br-files && npx testcafe chrome,firefox test/books",
+    "test:br:headless": "npm run port-br-files && npx testcafe chrome:headless,firefox:headless test/books",
     "test:dev": "npx testcafe -L --color",
     "test:lint-circ": "npm run lint && npm run circular",
-    "test:music": "npx testcafe chrome --config-file .testcaferc.js test/music/**",
+    "test:audio": "npx testcafe chrome --config-file .testcaferc.js test/audio",
     "test:all": "npx testcafe --config-file .testcaferc.js"
   },
   "types": "dist/index.d.ts",
@@ -32,7 +32,7 @@
     "testcafe-reporter-slack": "^0.0.6"
   },
   "devDependencies": {
-    "@internetarchive/bookreader": "^5.0.0-50-a1",
+    "@internetarchive/bookreader": "latest",
     "@typescript-eslint/eslint-plugin": "^5.14.0",
     "@typescript-eslint/parser": "^5.14.0",
     "concurrently": "^6.3.0",
