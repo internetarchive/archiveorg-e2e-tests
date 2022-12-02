@@ -1,8 +1,8 @@
-name: Push to `main`
+name: PRs, Pushes, Cron
 
 on:
-  push:
-    branches: [ main ]
+  schedule:
+    - cron: "0 8 * * *"
 
 jobs:
   lint-n-circular:
@@ -13,4 +13,3 @@ jobs:
 
   books:
     uses: ./.github/workflows/books.yml
-

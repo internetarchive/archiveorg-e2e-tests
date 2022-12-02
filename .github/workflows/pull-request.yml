@@ -1,8 +1,7 @@
-name: Push to `main`
+name: Pull Request
 
 on:
-  push:
-    branches: [ main ]
+  pull_request:
 
 jobs:
   lint-n-circular:
@@ -13,4 +12,3 @@ jobs:
 
   books:
     uses: ./.github/workflows/books.yml
-

@@ -1,4 +1,4 @@
-name: Music E2E Tests
+name: Texts/Books E2E Tests
 
 on: workflow_call
 
@@ -8,22 +8,19 @@ jobs:
 
     steps:
       - name: check out branch
-        uses: actions/checkout@v2
-      - name: set up node 16.x
-        uses: actions/setup-node@v2
+        uses: actions/checkout@v3
+      - name: Grab Node 16.x
+        uses: actions/setup-node@v3
         with:
           node-version: '16.x'
           cache: 'npm'
-      - name: Cache node_modules
-        uses: actions/cache@v2
-        id: cache
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-16-${{ hashFiles('package*.json') }}
-      - if: steps.cache.outputs.cache-hit != 'true'
-        run: npm install --ignore-scripts
+          cache-dependency-path: '**/package-lock.json'
+      - run: npm ci
+      - name: Look inside current dir
+        run: ls -lh .
+      - name: Grab BR's test files
+        run: npm run port-br-files
       - name: 📚 📖 Books tests! 📖 📚
         uses: DevExpress/testcafe-action@latest
         with:
-          skip-install: true
-          args: "--config-file .testcaferc.js test/books"
+          args: "--color -q -c 2 firefox:headless test/books"
