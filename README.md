@@ -5,7 +5,7 @@
 ## Running tests locally
 
 - run: `npm i`
-- run: `npm run test`
+- run: `npm run test:all`
 
 ## Creating new tests, running locally
 
@@ -24,12 +24,13 @@
 main job tickets
 - main.yml
 - merge.yml
+- cron.yml
+- pull-request.yml
 
 reusable workflows
 - music.yml
 - books.yml
-- bookreader-e2e-tests.yml
-
+- check-lint-circ.yml
 
 ## Linting with ESLint, Prettier, and Types
 To scan the project for linting errors, run
