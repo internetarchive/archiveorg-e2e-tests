@@ -26,4 +26,4 @@ jobs:
         uses: DevExpress/testcafe-action@latest
         with:
           skip-install: true
-          args: "chrome:headless, firefox:headless, test/books/**/*.test.*"
+          args: "--color -q -c 2 chrome:headless,firefox:headless test/books"
