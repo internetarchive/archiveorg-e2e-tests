@@ -52,7 +52,6 @@ books.forEach(function(page) {
 ['gendaitankashu00meijuoft'].forEach(function(page) {
   const url = `${localURL}${page}`;
 
-  const query = successfulSearchQueries[page];
   const rtlBr = new BookReader();
   rtlBr.nav = new iaBookNavigation();
   fixture `Archive.org BR Right-to-Left tests for: ${page}`.page `${url}`;
