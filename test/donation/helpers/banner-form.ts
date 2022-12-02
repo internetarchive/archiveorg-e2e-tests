@@ -1,6 +1,6 @@
 import { Selector } from 'testcafe';
 
-export const hasPaymentForm = () => {
+export const bannerPaymentFormToDonatePage = () => {
   test('Donation banner has amount form', async t => {
     const form = await Selector('donation-form-edit-donation');
     await t.expect(form.visible).ok();
