@@ -13,7 +13,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16.x'
-          cache: 'npm'
       - run: npm i
       - name: Look inside current dir
         run: ls -lh .
