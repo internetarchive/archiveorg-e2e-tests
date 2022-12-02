@@ -18,5 +18,7 @@ jobs:
         run: ls -lh .
       - name: Grab BR's test files
         run: npm run port-br-files
+      - name: Confrim `br-e2e-tests` dir
+        run: ls -lh br-e2e-tests/
       - name: 📚 📖 Books tests! 📖 📚
-        run: npm run test:br:headless
+        run: npm run test:br
