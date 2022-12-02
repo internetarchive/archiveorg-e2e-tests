@@ -23,4 +23,7 @@ jobs:
       - if: steps.cache.outputs.cache-hit != 'true'
         run: npm install --ignore-scripts
       - name: 📚 📖 Books tests! 📖 📚
-        run: npm run test:br:headless
+        uses: DevExpress/testcafe-action@latest
+        with:
+          skip-install: true
+          args: "chrome:headless, firefox:headless, test/books/**/*.test.*"
