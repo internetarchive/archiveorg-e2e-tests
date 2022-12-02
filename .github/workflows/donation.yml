@@ -16,8 +16,8 @@ jobs:
           cache: 'npm'
           cache-dependency-path: '**/package-lock.json'
       - run: ls -lh . && pwd
-      - name: 🎶 📻 🎶 Audio Tests! 🎶 📻 🎶
+      - name: 💰 Donation Flow Tests! 💰
         uses: DevExpress/testcafe-action@latest
         with:
           skip-install: true
-          args: "chrome --config-file .testcaferc.js test/donation"
+          args: "--config-file .testcaferc.js test/donation"
