@@ -18,7 +18,5 @@ jobs:
       - run: npm i --ignore-scripts
       - name: Look inside current dir
         run: ls -lh .
-      - name: Grab BR's test files
-        run: npm run port-br-files
       - name: 📚 📖 BR E2E tests! 📖 📚
         run: npm run test:br:headless
