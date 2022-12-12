@@ -1,0 +1,23 @@
+name: Donation Flow E2E Tests
+
+on: workflow_call
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: check out branch
+        uses: actions/checkout@v3
+      - name: Grab Node 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+      - run: ls -lh . && pwd
+      - name: 💰 Donation Flow Tests! 💰
+        uses: DevExpress/testcafe-action@latest
+        with:
+          skip-install: true
+          args: "--config-file .testcaferc.js test/donation"
