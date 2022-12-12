@@ -7,7 +7,9 @@ export const closeBanner = () => {
 
     const closeBtn = banner.find('button#donate-close-button');
     await t.click(closeBtn);
+    await t.eval(() => location.reload());
     await t.wait(2500);
+
     await t.expect(banner.visible).notOk();
   });
 };
