@@ -5,11 +5,39 @@ on:
     - cron: "0/93 * * * *"
 
 jobs:
-  lint-n-circular:
-    uses: ./.github/workflows/check-lint-circ.yml
+  test:
+      runs-on: ubuntu-latest
 
-  audio:
-    uses: ./.github/workflows/audio.yml
+      steps:
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v2
+          with:
+            node-version: '16.x'
+            cache: 'npm'
+        - uses: actions/cache@v2
+          name: Cache node_modules
+          id: cache
+          with:
+            path: node_modules
+            key: ${{ runner.os }}-node-16-${{ hashFiles('package*.json') }}
+        - if: steps.cache.outputs.cache-hit != 'true'
+          run: npm install
+        - name: Lint & Circular check on local test files
+          # run all tests
+          run: npm run test:all
+        # send all tests reports to slack after tests run
+        - name: send slack report
+          uses: console.log('**** slack report here. ****')
 
-  books:
-    uses: ./.github/workflows/books.yml
+
+  
+        # then:
+        # run all tests on browserstack
+        # report them to slack
+
+    # test framework diff ++
+    # lead a discussion around it
+    # cucumber, cypress ($)
+    # cucumber
+    #
+    #
