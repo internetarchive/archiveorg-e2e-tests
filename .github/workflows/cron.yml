@@ -2,14 +2,23 @@ name: Cron
 
 on:
   schedule:
-    - cron: "0/93 * * * *"
+    - cron: "0/3 * * * *"
 
 jobs:
-  lint-n-circular:
-    uses: ./.github/workflows/check-lint-circ.yml
-
-  audio:
-    uses: ./.github/workflows/audio.yml
-
-  books:
-    uses: ./.github/workflows/books.yml
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out branch
+        uses: actions/checkout@v3
+      - name: Grab Node 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+      - name: Npm ci
+        run: npm ci
+      - name: Run all tests
+        run: npm run test:all
+      - name: Send slack report
+        run: console.log('**** slack report here. ****')
