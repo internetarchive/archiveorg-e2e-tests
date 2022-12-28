@@ -2,7 +2,9 @@ name: Cron
 
 on:
   schedule:
-    - cron: "0/3 * * * *"
+    # changing this for now for testing
+    # - cron: "0/3 * * * *"
+    - cron: "*/5 * * * *"
 
 jobs:
   test:
@@ -18,7 +20,22 @@ jobs:
           cache-dependency-path: '**/package-lock.json'
       - name: Npm ci
         run: npm ci
-      - name: Run all tests
-        run: npm run test:all
-      - name: Send slack report
-        run: console.log('**** slack report here. ****')
+
+      # Run testcafe tests
+      # https://testcafe.io/documentation/402817/guides/continuous-integration/github-actions
+      - name: Run TestCafe Tests
+        uses: DevExpress/testcafe-action@latest
+        with:
+          args: "chrome tests"
+      # TODO: send slack notification with test report
+      # Slack notification GHA: https://github.com/marketplace/actions/slack-notification
+      - name: Slack Notification Demo
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@master
+        - name: Slack Notification Demo
+          uses: bryannice/gitactions-slack-notification@2.0.0
+          env:
+            SLACK_INCOMING_WEBHOOK: ${{ secrets.SLACK_INCOMING_WEBHOOK }}
+            SLACK_MESSAGE: 'Demo''ing the Slack Notification'
+            SLACK_TITLE: 'Slack Notification Demo'
