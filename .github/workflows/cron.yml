@@ -4,7 +4,7 @@ on:
   schedule:
     # changing this for now for testing
     # - cron: "0/3 * * * *"
-    - cron: "@monthly"
+    - cron: "*/5 * * * *"
 
 jobs:
   test:
