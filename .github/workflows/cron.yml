@@ -4,20 +4,35 @@ on:
   schedule:
     # should run every 3hrs on weekdays
     - cron: "0 */3 * * 1-5"
-    # - cron: "*/5 * * * *" - for testing (this will run every 5mins everyday)
+    # for testing purposes (this will run every 5mins everyday)
+    - cron: "*/5 * * * *" 
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     steps:
+      # Add GH action workflow for Slack integration for workflows, jobs and steps
+      # https://github.com/act10ns/slack
+      - name: Slack GH action notifier
+        uses: act10ns/slack@v1
+        with:
+          status: starting
+          channel: '#git-e2e-tests'
+          message: Starting scheduled e2e testcafe run...
+        if: always()
+
       - name: check out branch
         uses: actions/checkout@v3
+
       - name: Grab Node 16.x
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
           cache: 'npm'
           cache-dependency-path: '**/package-lock.json'
+
       - name: Npm ci
         run: npm ci
 
@@ -27,4 +42,12 @@ jobs:
         uses: DevExpress/testcafe-action@latest
         with:
           args: "chrome tests"
+
+      - name: Publish notifications to slack channel
+        uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+          steps: ${{ toJson(steps) }}
+          channel: '#git-e2e-tests'
+        if: always()
 
