@@ -10,7 +10,6 @@ jobs:
     uses: ./.github/workflows/run-slack-notifier.yml
     with:
       message: Starting push to main branch e2e tests run...
-      # webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
     secrets:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
@@ -21,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: check out branch
+      - name: Checkout branch
         uses: actions/checkout@v3
 
       - name: Grab Node 16.x
@@ -34,7 +33,7 @@ jobs:
       - name: Npm ci
         run: npm ci
 
-      # run testcafe workflow
-      - uses: ./.github/workflows/run-testcafe.yml
+      - name: Run testcafe workflow
+        uses: ./.github/workflows/run-testcafe.yml
         secrets:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
