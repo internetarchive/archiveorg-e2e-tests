@@ -7,12 +7,12 @@ on:
 jobs:
   notify:
     # run slack-notifier workflow
-    uses: ./.github/workflows/run-slack-notifier.yml
+    uses: ./run-slack-notifier.yml
     with:
       message: Starting push to main e2e tests run...
 
   lint-n-circular:
-    uses: ./.github/workflows/check-lint-circ.yml
+    uses: ./check-lint-circ.yml
 
   tests:
     runs-on: ubuntu-latest
@@ -32,4 +32,4 @@ jobs:
         run: npm ci
 
       # run testcafe workflow
-      - uses: ./.github/workflows/run-testcafe.yml
+      - uses: ./run-testcafe.yml
