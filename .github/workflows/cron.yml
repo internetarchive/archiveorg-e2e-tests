@@ -8,20 +8,14 @@ on:
     # - cron: "*/5 * * * *" 
 
 jobs:
-  test:
+  tests:
     runs-on: ubuntu-latest
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
     steps:
-      # Add GH action workflow for Slack integration for workflows, jobs and steps
-      # https://github.com/act10ns/slack
-      - name: Slack GH action notifier
-        uses: act10ns/slack@v1
+      # run slack-notifier workflow
+      - uses: ./.github/workflows/run-slack-notifier.yml
         with:
-          status: starting
-          channel: '#git-e2e-tests'
-          message: Starting scheduled e2e testcafe run...
-        if: always()
+          message: Starting scheduled e2e tests run...
 
       - name: check out branch
         uses: actions/checkout@v3
@@ -36,18 +30,6 @@ jobs:
       - name: Npm ci
         run: npm ci
 
-      # Run testcafe tests
-      # https://testcafe.io/documentation/402817/guides/continuous-integration/github-actions
-      - name: Run TestCafe Tests
-        uses: DevExpress/testcafe-action@latest
-        with:
-          args: "chrome tests"
-
-      - name: Publish notifications to slack channel
-        uses: act10ns/slack@v1
-        with:
-          status: ${{ job.status }}
-          steps: ${{ toJson(steps) }}
-          channel: '#git-e2e-tests'
-        if: always()
+      # run testcafe workflow
+      - uses: ./.github/workflows/run-testcafe.yml
 

@@ -1,0 +1,18 @@
+# Add GH action workflow for Slack integration for workflows, jobs and steps
+# https://github.com/act10ns/slack
+name: Slack GH action notifier
+
+on: workflow_call
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+    uses: act10ns/slack@v1
+    with:
+      status: starting
+      channel: '#git-e2e-tests'
+      # message: Starting slack notifier...
+    if: always()

@@ -5,12 +5,31 @@ on:
     branches: [ main ]
 
 jobs:
+  notify:
+    # run slack-notifier workflow
+    uses: ./.github/workflows/run-slack-notifier.yml
+    with:
+      message: Starting push to main e2e tests run...
+
   lint-n-circular:
     uses: ./.github/workflows/check-lint-circ.yml
 
-  audio:
-    uses: ./.github/workflows/audio.yml
+  tests:
+    runs-on: ubuntu-latest
 
-  books:
-    uses: ./.github/workflows/books.yml
+    steps:
+      - name: check out branch
+        uses: actions/checkout@v3
 
+      - name: Grab Node 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+
+      - name: Npm ci
+        run: npm ci
+
+      # run testcafe workflow
+      - uses: ./.github/workflows/run-testcafe.yml
