@@ -13,10 +13,11 @@ jobs:
 
     steps:
       # run slack-notifier workflow
-      - uses: ./.github/workflows/run-slack-notifier.yml
+      - uses: ./.github/actions/run-slack-notifier.yml
         with:
-          message: Starting scheduled e2e tests run...
-          webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          message: Starting push to main branch e2e tests run...
+        secrets:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
       - name: check out branch
         uses: actions/checkout@v3
@@ -32,7 +33,7 @@ jobs:
         run: npm ci
 
       # run testcafe workflow
-      - uses: ./.github/workflows/run-testcafe.yml
+      - uses: ./.github/actions/run-testcafe.yml
         with:
-          webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
 
