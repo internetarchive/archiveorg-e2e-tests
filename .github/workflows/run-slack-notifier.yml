@@ -8,11 +8,9 @@ on:
       message:
         required: true
         type: string
-      # webhook_url:
-      #   required: true
-      #   type: string
     secrets:
       SLACK_WEBHOOK_URL:
+        description: "slack webhook URL to publish notifications"
         required: true
 
 jobs:
