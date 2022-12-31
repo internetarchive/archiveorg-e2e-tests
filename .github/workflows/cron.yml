@@ -13,7 +13,7 @@ jobs:
 
     steps:
       # run slack-notifier workflow
-      - uses: ./run-slack-notifier.yml
+      - uses: ./.github/workflows/run-slack-notifier.yml
         with:
           message: Starting scheduled e2e tests run...
 
@@ -31,5 +31,5 @@ jobs:
         run: npm ci
 
       # run testcafe workflow
-      - uses: ./run-testcafe.yml
+      - uses: ./.github/workflows/run-testcafe.yml
 
