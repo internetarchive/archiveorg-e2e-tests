@@ -32,8 +32,17 @@ jobs:
       - name: Npm ci
         run: npm ci
 
-      # run testcafe workflow
-      - uses: ./.github/actions/run-testcafe.yml
+      - name: Run TestCafe workflow
+        uses: DevExpress/testcafe-action@latest
         with:
-          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          args: "chrome tests"
+
+      - name: Publish notifications to slack channel
+        uses: act10ns/slack@v1
+        with:
+          status: ${{ job.status }}
+          steps: ${{ toJson(steps) }}
+          channel: '#git-e2e-tests'
+          webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()
 
