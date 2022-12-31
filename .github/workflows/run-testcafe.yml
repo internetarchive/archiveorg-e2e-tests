@@ -2,7 +2,12 @@
 # https://testcafe.io/documentation/402817/guides/continuous-integration/github-actions
 name: Run testcafe tests
 
-on: workflow_call
+on:
+  workflow_call:
+    inputs:
+      webhook_url:
+        required: true
+        type: string
 
 jobs:
   test:

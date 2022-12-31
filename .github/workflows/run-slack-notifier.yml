@@ -8,6 +8,9 @@ on:
       message:
         required: true
         type: string
+      webhook_url:
+        required: true
+        type: string
 
 jobs:
   slack:
@@ -19,5 +22,5 @@ jobs:
           status: starting
           channel: '#git-e2e-tests'
           message: ${{ inputs.message }}
-          webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          webhook-url: ${{ inputs.webhook_url }}
         if: always()

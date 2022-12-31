@@ -16,6 +16,7 @@ jobs:
       - uses: ./.github/workflows/run-slack-notifier.yml
         with:
           message: Starting scheduled e2e tests run...
+          webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
 
       - name: check out branch
         uses: actions/checkout@v3
@@ -32,4 +33,6 @@ jobs:
 
       # run testcafe workflow
       - uses: ./.github/workflows/run-testcafe.yml
+        with:
+          webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
 
