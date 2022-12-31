@@ -7,8 +7,6 @@ on: workflow_call
 jobs:
   test:
     runs-on: ubuntu-latest
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
     steps:
       - name: Run TestCafe Tests
@@ -22,4 +20,5 @@ jobs:
           status: ${{ job.status }}
           steps: ${{ toJson(steps) }}
           channel: '#git-e2e-tests'
+          webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
         if: always()

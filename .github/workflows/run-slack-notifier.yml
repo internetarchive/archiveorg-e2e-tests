@@ -10,10 +10,8 @@ on:
         type: string
 
 jobs:
-  notify:
+  slack:
     runs-on: ubuntu-latest
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
     steps:
       - uses: act10ns/slack@v1
@@ -21,4 +19,5 @@ jobs:
           status: starting
           channel: '#git-e2e-tests'
           message: ${{ inputs.message }}
+          webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
         if: always()
