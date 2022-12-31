@@ -2,7 +2,12 @@
 # https://github.com/act10ns/slack
 name: Slack GH action notifier
 
-on: workflow_call
+on:
+  workflow_call:
+    inputs:
+      message:
+        required: true
+        type: string
 
 jobs:
   notify:
@@ -15,5 +20,5 @@ jobs:
         with:
           status: starting
           channel: '#git-e2e-tests'
-          # message: Starting slack notifier...
+          message: ${{ inputs.message }}
         if: always()

@@ -9,7 +9,7 @@ jobs:
     # run slack-notifier workflow
     uses: ./.github/workflows/run-slack-notifier.yml
     with:
-      message: Starting push to main e2e tests run...
+      message: Starting push to main branch e2e tests run...
 
   lint-n-circular:
     uses: ./.github/workflows/check-lint-circ.yml
