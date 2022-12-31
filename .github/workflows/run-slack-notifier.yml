@@ -10,9 +10,10 @@ jobs:
     env:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
-    uses: act10ns/slack@v1
-    with:
-      status: starting
-      channel: '#git-e2e-tests'
-      # message: Starting slack notifier...
-    if: always()
+    steps:
+      - uses: act10ns/slack@v1
+        with:
+          status: starting
+          channel: '#git-e2e-tests'
+          # message: Starting slack notifier...
+        if: always()
