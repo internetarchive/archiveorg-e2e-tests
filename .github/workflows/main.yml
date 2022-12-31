@@ -12,7 +12,7 @@ jobs:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     with:
       message: Starting push to main branch e2e tests run...
-      webhook_url: ${{ env.SLACK_WEBHOOK_URL }}
+      # webhook_url: ${{ secrets.SLAC }}
 
   lint-n-circular:
     uses: ./.github/workflows/check-lint-circ.yml
