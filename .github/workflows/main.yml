@@ -35,5 +35,5 @@ jobs:
 
       - name: Run testcafe workflow
         uses: ./.github/workflows/run-testcafe.yml
-        secrets:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}

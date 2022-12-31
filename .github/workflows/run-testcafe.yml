@@ -4,10 +4,10 @@ name: Run testcafe tests
 
 on:
   workflow_call:
-    secrets:
-      SLACK_WEBHOOK_URL:
-        description: "slack webhook URL to publish notifications"
+    inputs:
+      slack_webhook_url:
         required: true
+        type: string
 
 jobs:
   test:
@@ -25,5 +25,5 @@ jobs:
           status: ${{ job.status }}
           steps: ${{ toJson(steps) }}
           channel: '#git-e2e-tests'
-          webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          webhook-url: ${{ inputs.slack_webhook_url }}
         if: always()
