@@ -8,17 +8,18 @@ on:
     - cron: "*/5 * * * *" 
 
 jobs:
+  notify:
+    # run slack-notifier workflow
+    uses: ./.github/workflows/run-slack-notifier.yml
+    with:
+      message: Starting scheduled e2e tests run...
+    secrets:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
   tests:
     runs-on: ubuntu-latest
 
     steps:
-      # run slack-notifier workflow
-      - uses: ./.github/actions/run-slack-notifier.yml
-        with:
-          message: Starting push to main branch e2e tests run...
-        secrets:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-
       - name: check out branch
         uses: actions/checkout@v3
 
