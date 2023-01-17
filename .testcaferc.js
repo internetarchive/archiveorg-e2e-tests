@@ -5,7 +5,7 @@ module.exports = {
     concurrency: 1,
     browsers: [
         'chrome',
-        'firefox',
+        //'firefox',
         /* Headless is used in GHA, adding here for visibility */
         // 'chrome:headless',
         // 'firefox:headless'
