@@ -27,7 +27,6 @@ jobs:
 
       - name: Latest Chrome
         uses: browser-actions/setup-chrome@v1
-        run: chrome --version
 
       - name: Npm ci
         run: npm ci
