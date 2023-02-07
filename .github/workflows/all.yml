@@ -37,10 +37,8 @@ jobs:
       - name: Grab BR's test files
         run: npm run port-br-files
 
-      - name: Run TestCafe workflow
-        uses: DevExpress/testcafe-action@0.0.5
-        with:
-          args: "--config-file ./.testcaferc-gha.js"
+      - name: Testcafe using local testcafe
+        run: npm run test:all:gha
 
       - name: Publish notifications to slack channel
         uses: act10ns/slack@v1
