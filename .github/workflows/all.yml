@@ -28,8 +28,17 @@ jobs:
       - name: Npm ci
         run: npm ci
 
+      - name: Lint & Circular check on local test files
+        run: npm run test:lint-circ
+
+      - name: Look inside current dir
+        run: ls -lh .
+
+      - name: Grab BR's test files
+        run: npm run port-br-files
+
       - name: Run TestCafe workflow
-        uses: DevExpress/testcafe-action@latest
+        uses: DevExpress/testcafe-action@0.0.5
         with:
           args: "--skip-js-error --color -q firefox:headless tests"
 
@@ -41,4 +50,3 @@ jobs:
           channel: '#git-e2e-tests'
           webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
         if: always()
-
