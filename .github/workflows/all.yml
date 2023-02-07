@@ -34,9 +34,6 @@ jobs:
       - name: Look inside current dir
         run: ls -lh .
 
-      - name: Grab BR's test files
-        run: npm run port-br-files
-
       - name: Testcafe using local testcafe
         run: npm run test:all:gha
 
