@@ -4,14 +4,8 @@ on:
   pull_request:
 
 jobs:
-  lint-n-circular:
-    uses: ./.github/workflows/check-lint-circ.yml
-
-  audio:
-    uses: ./.github/workflows/audio.yml
-
-  books:
-    uses: ./.github/workflows/books.yml
+  all:
+    uses: ./.github/workflows/all.yml
 
   search:
     uses: ./.github/workflows/search.yml

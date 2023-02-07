@@ -2,7 +2,7 @@ module.exports = {
     skipJsErrors: true,
     color: true,
     quarantineMode: true,
-    concurrency: 2,
+    concurrency: 1,
     browsers: [
         'chrome',
         'firefox',
