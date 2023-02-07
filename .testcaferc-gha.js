@@ -9,5 +9,5 @@ module.exports = {
         'chrome:headless',
         'firefox:headless'
       ],
-    src: ['test/**/*test.*'],
+    src: ['tests'],
 }
