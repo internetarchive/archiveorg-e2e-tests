@@ -1,5 +1,6 @@
 module.exports = {
     skipJsErrors: true,
+    skipUncaughtErrors: true, // https://github.com/DevExpress/testcafe/issues/6807
     color: true,
     quarantineMode: true,
     concurrency: 1,
