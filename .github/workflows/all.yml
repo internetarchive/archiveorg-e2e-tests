@@ -40,7 +40,7 @@ jobs:
       - name: Run TestCafe workflow
         uses: DevExpress/testcafe-action@0.0.5
         with:
-          args: "--skip-js-error --color -q firefox:headless tests"
+          args: "--config-file ./.testcaferc-gha.js"
 
       - name: Publish notifications to slack channel
         uses: act10ns/slack@v1
