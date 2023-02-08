@@ -20,7 +20,7 @@ jobs:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
     steps:
-      - uses: act10ns/slack@v1
+      - uses: act10ns/slack@v2
         with:
           status: starting
           channel: '#git-e2e-tests'
