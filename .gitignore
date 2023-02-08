@@ -20,3 +20,4 @@ yarn.lock
 /_site/
 /dist/
 /out-tsc/
+/br-e2e-tests/
