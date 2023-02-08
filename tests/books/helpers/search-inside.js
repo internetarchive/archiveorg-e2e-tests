@@ -35,8 +35,20 @@ export const runSearchTests = (br, query)=> {
     await t.expect(getPageUrl()).contains(query);
 
     //checks highlight on result page is visible
-    const highlight = br.shell.find(".searchHiliteLayer rect");
-    await t.expect(highlight.visible).ok();
+    const highlightIsVisible = ClientFunction(() => {
+      const highlightRect = document.querySelector('.BookReader .searchHiliteLayer rect');
+      if (!highlightRect) return false;
+
+      const rectStyles = window.getComputedStyle(highlightRect);
+      const rectBounds = highlightRect.getBoundingClientRect();
+      return rectStyles?.display !== 'none' &&
+        rectStyles?.visibility !== 'hidden' &&
+        rectStyles?.visibility !== 'collapse' &&
+        rectBounds?.width > 0 &&
+        rectBounds?.height > 0;
+    });
+
+    await t.expect(highlightIsVisible()).ok();
   });
 
 
