@@ -40,7 +40,7 @@ export const runSearchTests = (br, query)=> {
       if (!highlightRect) return false;
 
       const rectStyles = window.getComputedStyle(highlightRect);
-      const rectBounds = highlightRect.getClientBoundingRect();
+      const rectBounds = highlightRect.getBoundingClientRect();
       return rectStyles?.display !== 'none' &&
         rectStyles?.visibility !== 'hidden' &&
         rectStyles?.visibility !== 'collapse' &&
