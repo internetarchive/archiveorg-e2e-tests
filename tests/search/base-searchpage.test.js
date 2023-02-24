@@ -35,9 +35,12 @@ test('Do search query', async t => {
   location = await getWindowLocation();
   
   await t.expect(location.href).eql(`${url}?query=cats`);
-  t.expect(search.collectionBrowser);
-  t.expect(search.collBrowserLeftColumn);
-  t.expect(search.collBrowserRightColumn);
+  await t.expect(search.collectionBrowser.exists).eql(true);
+  await t.expect(search.collBrowserLeftColumn.exists).eql(true);
+  await t.expect(search.collFacets.exists).eql(true);
 
+  await t.expect(search.collBrowserRightColumn.exists).eql(true);
+  await t.expect(search.sortFilterBar.exists).eql(true);
+  await t.expect(search.infiniteScroller.exists).eql(true);
 });
 
