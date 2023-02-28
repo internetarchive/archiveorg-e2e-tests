@@ -12,7 +12,7 @@ jobs:
 
   music:
     if: github.event.pull_request.merged == true  
-    uses: ./.github/workflows/music.yml
+    uses: ./.github/workflows/audio.yml
 
   books:
     if: github.event.pull_request.merged == true
