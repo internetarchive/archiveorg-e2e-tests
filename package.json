@@ -24,12 +24,12 @@
     "test:dev": "npx testcafe -L --color",
     "test:lint-circ": "npm run lint && npm run circular",
     "test:audio": "npx testcafe chrome --config-file .testcaferc.js tests/audio",
+    "test:search": "npx testcafe chrome --config-file .testcaferc.js tests/search",
     "test:all": "npx testcafe --config-file .testcaferc.js"
   },
   "types": "dist/index.d.ts",
   "dependencies": {
-    "testcafe": "^1.18.4",
-    "testcafe-reporter-slack": "^0.0.6"
+    "testcafe": "^2.3.0"
   },
   "devDependencies": {
     "@internetarchive/bookreader": "latest",

@@ -17,3 +17,7 @@ jobs:
   books:
     if: github.event.pull_request.merged == true
     uses: ./.github/workflows/books.yml
+
+  search:
+    if: github.event.pull_request.merged == true
+    uses: ./.github/workflows/search.yml
