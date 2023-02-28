@@ -13,6 +13,9 @@ export default class Search {
       .shadowRoot().find('collection-search-input')
       .shadowRoot().find('#go-button');
 
+    this.actionBar = this.btnGo = this.pageSearch
+    .shadowRoot().find('actionBar');
+
     this.collectionBrowser = this.pageSearch.shadowRoot().find('collection-browser');
 
     this.collBrowserLeftColumn = this.collectionBrowser.shadowRoot().find('#left-column');

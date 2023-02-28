@@ -17,6 +17,7 @@ test('Page load', async t => {
   await t.expect(search.pageSearch.exists).ok();
   await t.expect(search.inputSearch.exists).ok();
   await t.expect(search.btnGo.exists).ok();
+  await t.expect(search.actionBar.exists).ok();
 });
 
 test('Do search query', async t => {
@@ -27,6 +28,7 @@ test('Do search query', async t => {
 
   await t.expect(search.inputSearch.exists).ok();
   await t.expect(search.btnGo.exists).ok();
+  await t.expect(search.actionBar.exists).ok();
   await t.typeText(search.inputSearch, 'cats');
   await t.expect(search.inputSearch.value).eql('cats');
 
