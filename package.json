@@ -24,8 +24,8 @@
     "test:dev": "npx testcafe -L --color",
     "test:lint-circ": "npm run lint && npm run circular",
     "test:audio": "npx testcafe chrome --config-file .testcaferc.js tests/audio",
-    "test:all": "npx testcafe --config-file .testcaferc.js",
-    "test:all:gha": "npx testcafe --config-file .testcaferc-gha.js",
+    "test:all": "npm run port-br-files && npx testcafe --config-file .testcaferc.js",
+    "test:all:gha": "npm run port-br-files && npx testcafe --config-file .testcaferc-gha.js",
     "test:search": "npx testcafe chrome --config-file .testcaferc.js tests/search"
   },
   "types": "dist/index.d.ts",
