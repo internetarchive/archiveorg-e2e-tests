@@ -1,0 +1,41 @@
+name: All tests
+
+on: workflow_call
+
+jobs:
+  notify:
+    # run slack-notifier workflow
+    uses: ./.github/workflows/run-slack-notifier.yml
+    with:
+      message: Starting scheduled e2e tests run...
+    secrets:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: check out branch
+        uses: actions/checkout@v3
+
+      - name: Grab Node 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+
+      - name: Latest Chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: Npm ci
+        run: npm ci
+
+      - name: Lint & Circular check on local test files
+        run: npm run test:lint-circ
+
+      - name: Look inside current dir
+        run: ls -lh .
+
+      - name: Testcafe using local testcafe
+        run: npx testcafe --color --skip-js-errors --skip-uncaught-errors "chrome:headless" tests
