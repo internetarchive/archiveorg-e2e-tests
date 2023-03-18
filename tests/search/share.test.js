@@ -36,7 +36,12 @@ test('Modal pops up on click', async t => {
   await t.wait(1000); // for load
 
   await t.expect(search.actionBar.exists).ok();
-  
+  this.shareBtn = search.actionBar.shadowRoot().find('#share');
+  await t.click(shareBtn);
+  await t.wait(1000);
+  this.shareModel = search.actionBar.find('share-modal-content');
+  await t.expect(search.actionBar.shareModel.exists).ok();
+
   // const shadowRoot = appRoot.shadowRoot();
   // const modalManager = shadowRoot.child('modal-manager');
   // const modalButton = shadowRoot.child('#share');
