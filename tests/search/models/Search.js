@@ -27,5 +27,6 @@ export default class Search {
     this.collBrowserRightColumn = this.collectionBrowser.shadowRoot().find('#right-column');
     this.sortFilterBar = this.collBrowserRightColumn.find('sort-filter-bar');
     this.infiniteScroller = this.collBrowserRightColumn.find('infinite-scroller');
+
   }
 }
