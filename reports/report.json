@@ -1,0 +1,33 @@
+{
+  "startTime": "2023-03-23T22:11:25.694Z",
+  "endTime": "2023-03-23T22:11:49.318Z",
+  "userAgents": [
+    "Chrome 111.0.0.0 / Ventura 13"
+  ],
+  "passed": 0,
+  "total": 1,
+  "skipped": 0,
+  "fixtures": [
+    {
+      "name": "Search Page - Share modal",
+      "path": "/Users/banazsinjary/Documents/Projects/archiveorg-e2e-tests/tests/search/share.test.js",
+      "meta": {},
+      "tests": [
+        {
+          "name": "Modal pops up on click",
+          "meta": {},
+          "errs": [
+            "AssertionError: expected false to be truthy\n\nBrowser: Chrome 111.0.0.0 / macOS 10.15.7\n\n   21 |  await t.click(shareBtn);\n   22 |  await t.wait(1000); // for load\n   23 |\n   24 |  const modalManager = search.appRoot.find('modal-manager');\n   25 |  const shareModal = modalManager.shadowRoot().find('modal-template').find('share-modal-content');\n > 26 |  await t.expect(modalManager.exists).ok();\n   27 |  await t.expect(shareModal.exists).ok();\n   28 |\n   29 |});\n   30 |\n\n   at <anonymous> (/Users/banazsinjary/Documents/Projects/archiveorg-e2e-tests/tests/search/share.test.js:26:39)\n   at asyncGeneratorStep (/Users/banazsinjary/Documents/Projects/archiveorg-e2e-tests/tests/search/share.test.js:2:38)\n   at _next (/Users/banazsinjary/Documents/Projects/archiveorg-e2e-tests/tests/search/share.test.js:2:38)"
+          ],
+          "durationMs": 21133,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    "The \"src\" option from the configuration file will be ignored."
+  ]
+}

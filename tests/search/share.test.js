@@ -11,9 +11,19 @@ fixture`Search Page - Share modal`.page`${url}`;
 test('Modal pops up on click', async t => {
   const search = new Search();
   const location = await getWindowLocation();
+  const modalManager = search.appRoot.shadowRoot().find('modal-manager');
+  const shareModalOpen = modalManager.withAttribute('mode','open');
+  const shareModalClosed = modalManager.withAttribute('mode','closed');
+
   await t.expect(location.href).eql(url);
   await t.wait(1000); // for load
 
+  await t.expect(modalManager.exists).ok(); 
+
+  // check for modal manager closed state
+  await t.expect(shareModalClosed.exists).ok(); 
+
+  //check action bar component
   await t.expect(search.actionBar.exists).ok();
   const actionBarList = search.actionBar.shadowRoot().find('#link-design').find('ul');
 
@@ -21,9 +31,7 @@ test('Modal pops up on click', async t => {
   await t.click(shareBtn);
   await t.wait(1000); // for load
 
-  const modalManager = search.appRoot.find('modal-manager');
-  const shareModal = modalManager.shadowRoot().find('modal-template').find('share-modal-content');
-  await t.expect(modalManager.exists).ok();
-  await t.expect(shareModal.exists).ok();
+  //check for modal manager open state
+  await t.expect(shareModalOpen.exists).ok(); // mode check
 
 });
