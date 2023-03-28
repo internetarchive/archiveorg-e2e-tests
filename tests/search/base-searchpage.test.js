@@ -1,6 +1,6 @@
 import { ClientFunction } from 'testcafe';
 
-import Search from './models/Search';
+import Search from './modals/Search';
 
 const url = 'https://archive.org/search';
 
@@ -16,7 +16,8 @@ test('Page load', async t => {
 
   await t.expect(search.pageSearch.exists).ok();
   await t.expect(search.inputSearch.exists).ok();
-  await t.expect(search.btnGo.exists).ok();
+  //await t.expect(search.btnGo.exists).ok();
+  await t.expect(search.actionBar.exists).ok();
 });
 
 test('Do search query', async t => {
@@ -26,7 +27,8 @@ test('Do search query', async t => {
   await t.wait(1000); // for load
 
   await t.expect(search.inputSearch.exists).ok();
-  await t.expect(search.btnGo.exists).ok();
+  //await t.expect(search.btnGo.exists).ok();
+  await t.expect(search.actionBar.exists).ok();
   await t.typeText(search.inputSearch, 'cats');
   await t.expect(search.inputSearch.value).eql('cats');
 

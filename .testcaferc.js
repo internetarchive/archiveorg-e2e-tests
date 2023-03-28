@@ -11,8 +11,9 @@ module.exports = {
         // 'firefox:headless'
       ],
     src: ['tests/**/*test.*'],
-    reporter: {
-      name: 'json',
-      output: 'reports/report.json'
-    },
+    reporter:{
+      name:'json',
+      output:'reports/report.json'
+    }
+    
 }
