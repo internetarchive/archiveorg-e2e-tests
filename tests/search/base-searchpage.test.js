@@ -1,6 +1,6 @@
 import { ClientFunction } from 'testcafe';
 
-import Search from '.modals/Search';
+import Search from './modals/Search';
 
 const url = 'https://archive.org/search';
 
