@@ -1,6 +1,6 @@
 import { ClientFunction } from 'testcafe';
 
-import Search from './models/Search';
+import Search from './Search';
 
 const url = 'https://archive.org/search';
 

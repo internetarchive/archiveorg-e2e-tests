@@ -1,5 +1,5 @@
 import { ClientFunction } from 'testcafe';
-import Search from './models/Search';
+import Search from './modals/Search';
 
 const getWindowLocation = ClientFunction(() => window.location);
 
