@@ -5,7 +5,7 @@ import BookReader from '../../br-e2e-tests/models/BookReader.js';
 import { DesktopNav } from '../../br-e2e-tests/models/Navigation.js';
 import { runSearchTests } from './helpers/search-inside.js';
 
-const localURL = 'https://archive.org/details/';
+const localURL = 'https://ia-petabox-theatre-type-calc-consolidate.archive.org/details/';
 // Books on archive.org
 // add books when adding their respective tests
 const books = [
