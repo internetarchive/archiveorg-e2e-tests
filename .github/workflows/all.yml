@@ -7,7 +7,7 @@ jobs:
     # run slack-notifier workflow
     uses: ./.github/workflows/run-slack-notifier.yml
     with:
-      message: Starting scheduled e2e tests run...
+      message: Starting e2e tests run...
     secrets:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
