@@ -8,7 +8,6 @@ module.exports = {
     /* Headless is used in GHA, adding here for visibility */
     'chrome:headless',
     'firefox:headless',
-    'browserstack:chrome@79.0:Windows 10'
   ],
   src: ['tests'],
   reporter: {
