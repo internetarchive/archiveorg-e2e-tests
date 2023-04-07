@@ -27,16 +27,12 @@
     "test:all": "npm run port-br-files && npx testcafe --config-file .testcaferc.js",
     "test:all:gha": "npm run port-br-files && npx testcafe --config-file .testcaferc-gha.js",
     "test:search": "npx testcafe chrome --config-file .testcaferc.js tests/search",
-    "test:browserstack": "npm run port-br-files && npx testcafe",
+    "test:browserstack": "npm run port-br-files && npx testcafe 'browserstack:firefox@58.0:OS X HighSierra, browserstack:ie@11:Windows 10' tests",
     "browserstack:single": "npm run port-br-files && ./config/single-run.sh",
     "browserstack:parallel": "npm run port-br-files && ./config/parallel-run.sh",
     "browserstack:sequential": "npm run port-br-files && ./config/sequential-run.sh"
   },
   "types": "dist/index.d.ts",
-  "dependencies": {
-    "testcafe": "^2.3.0",
-    "testcafe-browser-provider-browserstack": "^1.14.2"
-  },
   "devDependencies": {
     "@internetarchive/bookreader": "latest",
     "@typescript-eslint/eslint-plugin": "^5.14.0",
@@ -50,6 +46,8 @@
     "lint-staged": "^13.0.3",
     "madge": "^5.0.1",
     "prettier": "^2.4.1",
+    "testcafe": "^2.5.0",
+    "testcafe-browser-provider-browserstack": "^1.14.2",
     "tslib": "^2.3.1",
     "typescript": "^4.4.4"
   },
