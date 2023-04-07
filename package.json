@@ -34,7 +34,8 @@
   },
   "types": "dist/index.d.ts",
   "dependencies": {
-    "testcafe": "^2.3.0"
+    "testcafe": "^2.3.0",
+    "testcafe-browser-provider-browserstack": "^1.14.2"
   },
   "devDependencies": {
     "@internetarchive/bookreader": "latest",
