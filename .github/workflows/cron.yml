@@ -3,9 +3,9 @@ name: Cron
 on:
   schedule:
     # should run every 3hrs on weekdays
-    - cron: "0 */3 * * 1-5"
+    # - cron: "0 */3 * * 1-5"
     # for testing purposes (this will run every 5mins everyday)
-    # - cron: "*/5 * * * *"
+    - cron: "*/5 * * * *"
 
 jobs:
   notify:
@@ -33,10 +33,13 @@ jobs:
       - name: Npm ci
         run: npm ci
 
-      - name: Run TestCafe workflow
-        uses: DevExpress/testcafe-action@latest
-        with:
-          args: "chrome tests"
+      - name: Run tests
+        run: npm run test:all:gha
+
+      # - name: Run TestCafe workflow
+      #   uses: DevExpress/testcafe-action@latest
+      #   with:
+      #     args: "chrome tests"
 
       - name: Publish notifications to slack channel
         uses: act10ns/slack@v1
