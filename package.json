@@ -26,7 +26,7 @@
     "test:audio": "npx testcafe chrome --config-file .testcaferc.js tests/audio",
     "test:all": "npx testcafe --config-file .testcaferc.js",
     "test:search": "npx testcafe chrome --config-file .testcaferc.js tests/search",
-    "test:all:gha": "npx testcafe --config-file .testcaferc-gha.js"
+    "test:all:gha": "npx testcafe chrome:headless tests"
 
   },
   "types": "dist/index.d.ts",
