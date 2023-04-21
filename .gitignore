@@ -21,3 +21,4 @@ yarn.lock
 /dist/
 /out-tsc/
 /br-e2e-tests/
+/reports
