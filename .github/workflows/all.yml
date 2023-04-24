@@ -40,10 +40,8 @@ jobs:
       - name: Look inside current dir
         run: ls -lh .
 
-      - name: Run TestCafe workflow
-        uses: DevExpress/testcafe-action@latest
-        with:
-          args: "chrome tests"
+      - name: Testcafe using local testcafe
+        run: npx testcafe --color --skip-js-errors --skip-uncaught-errors "chrome:headless" tests
 
       - name: Publish notifications to slack channel
         uses: act10ns/slack@v1
