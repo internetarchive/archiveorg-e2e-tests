@@ -30,6 +30,9 @@ jobs:
           cache: 'npm'
           cache-dependency-path: '**/package-lock.json'
 
+      - name: Install xvfb
+        run: sudo apt-get install -y xvfb
+
       - name: Npm ci
         run: npm ci
 
