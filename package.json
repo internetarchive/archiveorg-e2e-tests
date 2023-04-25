@@ -27,12 +27,8 @@
     "test:all": "npx testcafe --config-file .testcaferc.js",
     "test:search": "npx testcafe chrome --config-file .testcaferc.js tests/search",
     "test:all:gha": "npx testcafe chrome:headless tests"
-
   },
   "types": "dist/index.d.ts",
-  "dependencies": {
-    "testcafe": "^2.3.0"
-  },
   "devDependencies": {
     "@internetarchive/bookreader": "latest",
     "@typescript-eslint/eslint-plugin": "^5.14.0",
@@ -91,5 +87,8 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "dependencies": {
+    "testcafe": "^2.5.1-rc.1"
   }
 }
