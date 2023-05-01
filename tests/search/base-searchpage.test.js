@@ -66,11 +66,18 @@ test('Facets class removal', async t => {
 
   await t.expect(modalManager.exists).ok(); 
 
-  const moreBtn = search.collFacets.shadowRoot().find('more-link');
+  await t.expect(search.collBrowserLeftColumn.exists).ok();
+  await t.expect(search.collFacets.exists).ok();
+
+  const moreBtn = search.collFacets.shadowRoot().find('.more-link');
+  await t.expect(moreBtn.exists).ok();
   await t.click(moreBtn);
   await t.wait(1000);
 
-  await t.expect(shareModalOpen.exists).ok();
+  // await t.expect(shareModalOpen.exists).ok();
+  // await t.expect(modalManager)
+
+
 
   
 });

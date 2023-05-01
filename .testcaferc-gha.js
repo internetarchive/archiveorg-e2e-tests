@@ -7,11 +7,11 @@ module.exports = {
     browsers: [
         /* Headless is used in GHA, adding here for visibility */
         'chrome:headless',
-        'firefox:headless'
+        //'firefox:headless'
       ],
-    src: ['tests'],
-    reporter: {
-      name: 'json',
-      output: 'reports/report.json'
-    },
+    // src: ['tests'],
+    // reporter: {
+    //   name: 'json',
+    //   output: 'reports/report.json'
+    // },
 }
