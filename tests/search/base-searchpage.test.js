@@ -65,7 +65,7 @@ test('Facets class removal', async t => {
   await t.typeText(search.inputSearch, 'hello kitty');
 
   await t.pressKey('Enter');
-  await t.wait(6000); // for load
+  await t.wait(600); // for load
 
   await t.expect(search.collBrowserLeftColumn.exists).ok();
   await t.expect(search.collFacets.exists).ok();
@@ -73,14 +73,11 @@ test('Facets class removal', async t => {
   const moreBtn = search.collFacets.shadowRoot().find('.more-link');
   await t.expect(moreBtn.exists).ok();
   await t.click(moreBtn);
-  await t.wait(1000);
+  await t.wait(100);
 
   await t.expect(shareModalOpen.exists).ok();
 
-  // const facetStyle = modalManager.hasClass('more-search-facets');
-  // const facetStyle = modalManager.withAttribute('class','more-search-facets');
-  //const facetStyle = modalManager.shadowRoot().find('more-search-facets');
-  const facetStyle = modalManager.getE('more-search-facets');
+  const facetStyle = modalManager.withAttribute('class','more-search-facets');
   await t.expect(facetStyle.exists).ok();
   
   // const closeModal = modalManager.shadowRoot().find('.close-button');
