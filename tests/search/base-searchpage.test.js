@@ -1,8 +1,4 @@
 import { ClientFunction } from 'testcafe';
-// for share e2e test
-// go to facets and select more on search page
-// click to turn on
-// check to see if class is still there 
 
 import Search from './models/Search';
 
