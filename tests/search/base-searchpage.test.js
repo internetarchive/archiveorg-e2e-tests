@@ -58,14 +58,13 @@ test('Facets class removal', async t => {
   const shareModalOpen = modalManager.withAttribute('mode','open');
   const shareModalClosed = modalManager.withAttribute('mode','closed');
   await t.expect(location.href).eql(url);
-  await t.wait(1000); // for load
+  await t.wait(100); // for load
 
   await t.expect(modalManager.exists).ok(); 
 
   await t.typeText(search.inputSearch, 'hello kitty');
-
   await t.pressKey('Enter');
-  await t.wait(6000);
+  await t.wait(600); //search to get to more facets
 
   await t.expect(search.collBrowserLeftColumn.exists).ok();
   await t.expect(search.collFacets.exists).ok();
@@ -73,28 +72,23 @@ test('Facets class removal', async t => {
   const moreBtn = search.collFacets.shadowRoot().find('.more-link');
   await t.expect(moreBtn.exists).ok();
   await t.click(moreBtn);
-  await t.wait(1000);
+  await t.wait(100); //open up the modal
 
   await t.expect(shareModalOpen.exists).ok();
 
   const facetStyle = modalManager.withAttribute('class','more-search-facets');
-  //await t.expect(facetStyle).notOk;
-  //await t.expect(facetStyle.exists).ok();
+  await t.expect(facetStyle.exists).ok(); //facets class exists check
   
   await t.expect(modalTemplate.exists).ok();
 
   const closeModal = modalTemplate.shadowRoot().find('.close-button');
   await t.expect(closeModal.exists).ok();
   await t.click(closeModal);
-  await t.wait(1000);
+  await t.wait(100); //close modal
 
   await t.expect(shareModalClosed.exists).ok(); 
 
-  //await t.expect(facetStyle.exists).ok();
-  //await t.expect(facetStyle.exists).notOk;
-
-
-
+  await t.expect(facetStyle.exists).notOk; //facets class removed check
   
 });
 
