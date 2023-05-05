@@ -1,0 +1,49 @@
+{
+  "startTime": "2023-05-05T02:25:52.600Z",
+  "endTime": "2023-05-05T02:26:18.359Z",
+  "userAgents": [
+    "Chrome 112.0.0.0 / Ventura 13"
+  ],
+  "passed": 3,
+  "total": 3,
+  "skipped": 0,
+  "fixtures": [
+    {
+      "name": "Search Page",
+      "path": "/Users/banazsinjary/Documents/Projects/archiveorg-e2e-tests/tests/search/base-searchpage.test.js",
+      "meta": {},
+      "tests": [
+        {
+          "name": "Page load",
+          "meta": {},
+          "errs": [],
+          "durationMs": 2663,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Do search query",
+          "meta": {},
+          "errs": [],
+          "durationMs": 8809,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        },
+        {
+          "name": "Facets class removal",
+          "meta": {},
+          "errs": [],
+          "durationMs": 11852,
+          "unstable": false,
+          "screenshotPath": null,
+          "skipped": false
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    "The \"src\" option from the configuration file will be ignored."
+  ]
+}
