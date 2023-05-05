@@ -12,8 +12,8 @@ test('Modal pops up on click', async t => {
   const search = new Search();
   const location = await getWindowLocation();
   const modalManager = search.appRoot.shadowRoot().find('modal-manager');
-  const shareModalOpen = modalManager.withAttribute('mode','open');
-  const shareModalClosed = modalManager.withAttribute('mode','closed');
+  const facetsModalOpen = modalManager.withAttribute('mode','open');
+  const facetsModalClosed = modalManager.withAttribute('mode','closed');
 
   await t.expect(location.href).eql(url);
   await t.wait(1000); // for load
@@ -21,7 +21,7 @@ test('Modal pops up on click', async t => {
   await t.expect(modalManager.exists).ok(); 
 
   // check for modal manager closed state
-  await t.expect(shareModalClosed.exists).ok(); 
+  await t.expect(facetsModalClosed.exists).ok(); 
 
   //check action bar component
   await t.expect(search.actionBar.exists).ok();
@@ -32,6 +32,6 @@ test('Modal pops up on click', async t => {
   await t.wait(1000); // for load
 
   //check for modal manager open state
-  await t.expect(shareModalOpen.exists).ok(); // mode check
+  await t.expect(facetsModalOpen.exists).ok(); // mode check
 
 });
