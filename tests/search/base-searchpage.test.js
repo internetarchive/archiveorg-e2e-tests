@@ -51,8 +51,8 @@ test('Facets class removal', async t => {
   const location = await getWindowLocation();
   const modalManager = search.appRoot.shadowRoot().find('modal-manager');
   const modalTemplate = modalManager.shadowRoot().find('modal-template');
-  const shareModalOpen = modalManager.withAttribute('mode','open');
-  const shareModalClosed = modalManager.withAttribute('mode','closed');
+  const facetModalOpen = modalManager.withAttribute('mode','open');
+  const facetModalClosed = modalManager.withAttribute('mode','closed');
   await t.expect(location.href).eql(url);
   await t.wait(1000); // for load
 
@@ -70,7 +70,7 @@ test('Facets class removal', async t => {
   await t.click(moreBtn);
   await t.wait(1000); //open up the modal
 
-  await t.expect(shareModalOpen.exists).ok();
+  await t.expect(facetModalOpen.exists).ok();
 
   const facetStyle = modalManager.withAttribute('class','more-search-facets');
   await t.expect(facetStyle.exists).ok(); //facets class exists check
@@ -82,7 +82,7 @@ test('Facets class removal', async t => {
   await t.click(closeModal);
   await t.wait(1000); //close modal
 
-  await t.expect(shareModalClosed.exists).ok(); 
+  await t.expect(facetModalClosed.exists).ok(); 
 
   await t.expect(facetStyle.exists).notOk; //facets class removed check
   
