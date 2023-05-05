@@ -6,12 +6,12 @@ module.exports = {
     concurrency: 1,
     browsers: [
         /* Headless is used in GHA, adding here for visibility */
-        //'chrome:headless',
-        //'firefox:headless'
+        'chrome:headless',
+        'firefox:headless'
       ],
-    // src: ['tests'],
-    // reporter: {
-    //   name: 'json',
-    //   output: 'reports/report.json'
-    // },
+    src: ['tests'],
+    reporter: {
+      name: 'json',
+      output: 'reports/report.json'
+    },
 }
