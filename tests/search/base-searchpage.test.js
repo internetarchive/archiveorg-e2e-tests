@@ -56,7 +56,7 @@ test('Facets class removal', async t => {
   await t.expect(location.href).eql(url);
   await t.wait(1000); // for load
 
-  await t.expect(modalManager.exists).ok(); 
+  await t.expect(modalManager.exists).ok(); //check open
 
   await t.typeText(search.inputSearch, 'hello kitty');
   await t.pressKey('Enter');
@@ -82,7 +82,7 @@ test('Facets class removal', async t => {
   await t.click(closeModal);
   await t.wait(1000); //close modal
 
-  await t.expect(facetModalClosed.exists).ok(); 
+  await t.expect(facetModalClosed.exists).ok(); //check closed
 
   await t.expect(facetStyle.exists).notOk; //facets class removed check
   
