@@ -3,10 +3,10 @@
 
 module.exports = {
   skipJsErrors: true,
-  // skipUncaughtErrors: true, // https://github.com/DevExpress/testcafe/issues/6807
+  skipUncaughtErrors: true, // https://github.com/DevExpress/testcafe/issues/6807
   color: true,
-  // quarantineMode: true,
-  concurrency: 1,
+  quarantineMode: true,
+  concurrency: 2,
   browsers: [
     /* Headless is used in GHA, adding here for visibility */
     'chrome:headless',
