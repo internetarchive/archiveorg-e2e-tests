@@ -37,7 +37,7 @@ jobs:
         run: npm ci
 
       - name: Run TestCafe workflow
-        run: npm run test
+        run: npm run test:all
 
       - name: Publish notifications to slack channel
         uses: act10ns/slack@v2
