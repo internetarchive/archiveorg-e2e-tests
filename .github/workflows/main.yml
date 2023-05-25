@@ -37,9 +37,7 @@ jobs:
         run: npm ci
 
       - name: Run TestCafe workflow
-        uses: DevExpress/testcafe-action@latest
-        with:
-          args: "chrome tests"
+        run: npm run test
 
       - name: Publish notifications to slack channel
         uses: act10ns/slack@v2
