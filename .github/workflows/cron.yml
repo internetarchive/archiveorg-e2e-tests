@@ -3,17 +3,17 @@ name: Cron
 on:
   schedule:
     # should run every 3hrs on weekdays
-    # - cron: "0 */3 * * 1-5"
-    # for testing purposes (this will run every 5mins everyday)
-    # - cron: "*/5 * * * *"
-    - cron: "0 0 1 * *" # every month
+    - cron: "0 */3 * * 1-5"
+    # for testing purposes
+    # - cron: "*/5 * * * *"   # every 5mins everyday
+    # - cron: "0 0 1 * *"     # every month
 
 jobs:
   notify:
     # run slack-notifier workflow
     uses: ./.github/workflows/run-slack-notifier.yml
     with:
-      message: Starting scheduled e2e tests run...
+      message: Starting scheduled TestCafe e2e tests run...
     secrets:
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
@@ -44,6 +44,8 @@ jobs:
       #   uses: DevExpress/testcafe-action@latest
       #   with:
       #     args: "chrome tests"
+      - name: Run TestCafe workflow
+        run: npm run test:all:gha
 
       - name: Publish notifications to slack channel
         uses: act10ns/slack@v1
