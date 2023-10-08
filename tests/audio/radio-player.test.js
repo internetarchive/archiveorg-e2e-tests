@@ -1,7 +1,7 @@
 import { Selector } from 'testcafe';
 
 // has start time & query to serach inside transcript
-const radioPlayerPage = 'https://archive.org/details/BBC_Radio_2_20180828_010000?start=2826&q=heroic+deeds';
+const radioPlayerPage = 'https://ia-petabox-theatre-type-calc-consolidate.archive.org/details/BBC_Radio_2_20180828_010000?start=2826&q=heroic+deeds';
 
 fixture`Radio Player`.page`${radioPlayerPage}`;
 
