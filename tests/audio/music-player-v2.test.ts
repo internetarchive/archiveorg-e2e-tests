@@ -1,7 +1,7 @@
 import { ClientFunction, Selector } from 'testcafe';
 
 const musicItemUrl =
-  'https://archive.org/details/cd_mystery-sound-effects_gateway-gecordings';
+  'https://ia-petabox-jim-req-ia-squash.archive.org/details/cd_mystery-sound-effects_gateway-gecordings';
 fixture`Music Player`.page`${musicItemUrl}`;
 
 const getWindowLocation = ClientFunction(() => window.location);
